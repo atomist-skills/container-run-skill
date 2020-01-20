@@ -22,7 +22,6 @@ rules:
           args:
             - -c
             - >-
-              echo "atm:phase=mvn ${parameters.phase:package}" &&
               mvn
               package
               -B
