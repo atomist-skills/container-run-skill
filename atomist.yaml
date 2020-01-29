@@ -32,12 +32,6 @@ skill:
   package:
     - use: 'atomist/package-sdm-skill/package'
 
-configuration:
-  sdm:
-    cache:
-      enabled: true
-      path: /tmp/sdm
-
 goals:
   - name: run
     containers:
