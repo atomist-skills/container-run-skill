@@ -1,4 +1,4 @@
-# `@atomist/container-runner-skill`
+# `atomist/container-runner-skill`
 
 Atomist Skill to run Docker containers on pushes to Git repositories.
 
