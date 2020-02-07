@@ -13,13 +13,13 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 #
- 
+
 skill:
-  name: 'atomist/container-runner-skill'
+  name: atomist/container-run-skill
   title: Docker Container Runner
   version: 0.1.0
   author: Atomist
-  description: Atomist Skill to run Docker containers on pushes to Git repositories
+  description: Run Docker containers on pushes to Git repositories
   category:
     - ci
   technology:
@@ -30,21 +30,38 @@ skill:
   icon: https://www.docker.com/sites/default/files/social/docker_facebook_share.png
 
   package:
-    - use: 'atomist/package-sdm-skill/package'
+    - use: atomist/package-sdm-skill/package
 
-goals:
+parameters:
+  - string:
+      name: name
+      displayName: Name
+      description: Name of the container to run
+      required: false
+  - string:
+      name: image
+      displayName: Docker Image
+      description: 'Docker image to run including optional tag (format image:tag)'
+      required: true
+  - string:
+      name: command
+      displayName: Command & Arguments
+      description: Command to run inside the container
+      required: false
+  - stringArray:
+      name: env
+      displayName: Environment Variables
+      description: Environment variables to be passed to the container (format KEY=VALUE)
+      required: false
+
+rules:
+
   - name: run
-    containers:
-      - name: ${parameters.name:run}
-        image: ${parameters.image}
-        command: ${!parameters.command}
-        args: ${!parameters.args}
-        env: ${!parameters.env}
-        resources:
-          limits:
-            cpu: 1000m
-            memory: 2048Mi
-          requests:
-            cpu: 100m
-            memory: 1024Mi
-    retry: true
+    goals:
+      - use: ContainerRun
+        parameters:
+          image: ${skill.configuration.image}
+          name: ${!skill.configuration.name}
+          command: ${!skill.configuration.command}
+          env: ${!skill.configuration.env}
+        retry: true
