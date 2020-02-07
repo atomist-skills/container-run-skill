@@ -2,7 +2,7 @@
 
 Atomist Skill to run Docker containers on pushes to Git repositories.
 
-## Usage
+## Usage 
 
 This generic skill provides a goal that can be used with any skill by
 referencing it in the `rules` section of the `atomist.yaml`:
