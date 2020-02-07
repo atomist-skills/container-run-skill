@@ -8,7 +8,7 @@ This generic skill provides a goal that can be used with any skill by
 referencing it in the `rules` section of the `atomist.yaml`:
 
 ```yaml
-rules:
+rules: 
 
   - name: maven
     tests:
