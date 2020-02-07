@@ -33,6 +33,11 @@ skill:
     - use: atomist/package-sdm-skill/package
 
 parameters:
+  - repoFilter:
+      name: repos
+      displayName: Repository Selection
+      description: Select for which repositories the configured container should run
+      required: false
   - string:
       name: name
       displayName: Name
