@@ -36,7 +36,17 @@ parameters:
   - repoFilter:
       name: repos
       displayName: Repository Selection
-      description: Select for which repositories the configured container should run
+      description: Select for which pushes to repositories the configured container should run
+      required: false
+  - string:
+      name: hasFile
+      displayName: File Filter
+      description: Filter pushes to repositories that have matching files (format regexp)
+      required: false
+  - string:
+      name: isBranch
+      displayName: Branch Filter
+      description: Filter pushes to repositories on matching branches (format regexp)
       required: false
   - string:
       name: name
@@ -62,6 +72,10 @@ parameters:
 rules:
 
   - name: run
+    tests:
+      - is_skill_configured:
+          has_file: hasFile
+          is_branch: isBranch
     goals:
       - use: ContainerRun
         parameters:
