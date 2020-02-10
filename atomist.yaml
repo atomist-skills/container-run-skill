@@ -49,11 +49,6 @@ parameters:
       description: Filter pushes to repositories on matching branches (format regexp)
       required: false
   - string:
-      name: name
-      displayName: Name
-      description: Name of the container to run
-      required: false
-  - string:
       name: image
       displayName: Docker Image
       description: 'Docker image to run including optional tag (format image:tag)'
@@ -79,8 +74,8 @@ rules:
     goals:
       - use: ContainerRun
         parameters:
-          image: ${skill.configuration.image}
+          image: ${skill.configuration.parameters.image}
           name: ${!skill.configuration.name}
-          command: ${!skill.configuration.command}
-          env: ${!skill.configuration.env}
+          command: ${!skill.configuration.parameters.command}
+          env: ${!skill.configuration.parameters.env}
         retry: true
