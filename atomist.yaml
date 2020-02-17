@@ -33,34 +33,35 @@ skill:
     - use: atomist/package-sdm-skill/package
 
 parameters:
-  - repoFilter:
+  - repo_filter:
       name: repos
-      displayName: Repository Selection
+      display_name: Repository Selection
       description: Select for which pushes to repositories the configured container should run
       required: false
   - string:
       name: hasFile
-      displayName: File Filter
+      display_name: File Filter
       description: Filter pushes to repositories that have matching files (format regexp)
       required: false
   - string:
       name: isBranch
-      displayName: Branch Filter
+      display_name: Branch Filter
       description: Filter pushes to repositories on matching branches (format regexp)
       required: false
   - string:
       name: image
-      displayName: Docker Image
+      display_name: Docker Image
       description: 'Docker image to run including optional tag (format image:tag)'
       required: true
   - string:
       name: command
-      displayName: Command & Arguments
+      display_name: Command & Arguments
       description: Command to run inside the container
+      line_style: multiple
       required: false
-  - stringArray:
+  - string_array:
       name: env
-      displayName: Environment Variables
+      display_name: Environment Variables
       description: Environment variables to be passed to the container (format KEY=VALUE)
       required: false
 
