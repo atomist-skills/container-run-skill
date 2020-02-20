@@ -21,7 +21,9 @@ skill:
   author: Atomist
   description: Run Docker containers on pushes to Git repositories
   category:
-    - ci
+    - BUILD
+    - DEPLOY
+    - DEV_EX
   technology:
     - docker
   license: Apache-2.0
