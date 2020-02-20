@@ -65,8 +65,23 @@ export const ContainerRun: GoalMaker<ContainerRunParameters> = async (sdm, param
         const name = !!paramsToUse.name ? paramsToUse.name : paramsToUse.image.split(":")[0];
 
         return {
-            details: {
-                displayName: name,
+            [name]: {
+                goals: {
+                    details: {
+                        displayName: name,
+                        descriptions: {
+                            planned: `Planned: ${name}`,
+                            requested: `Ready: ${name}`,
+                            completed: `Complete: ${name}`,
+                            inProcess: `Running: ${name}`,
+                            failed: `Failed: ${name}`,
+                            waitingForApproval: `Approval required: ${name}`,
+                            waitingForPreApproval: `Start required: ${name}`,
+                            canceled: `Canceled: ${name}`,
+                            stopped: `Stopped: ${name}`,
+                        },
+                    },
+                },
             },
         };
     };

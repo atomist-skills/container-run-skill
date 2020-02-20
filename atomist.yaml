@@ -17,25 +17,42 @@
 skill:
   name: atomist/container-run-skill
   title: Docker Container Runner
-  version: 0.1.3
+  version: 1.0.0
   author: Atomist
   description: Run Docker containers on pushes to Git repositories
   category:
-    - BUILD
-    - DEPLOY
-    - DEV_EX
+    - build
+    - deploy
+    - dev_ex
   technology:
     - docker
   license: Apache-2.0
   homepage: https://github.com/atomist-skills/container-skill
   repository: https://github.com/atomist-skills/container-skill.git
-  #icon: https://www.docker.com/sites/default/files/social/docker_facebook_share.png
   icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48cGF0aCBkPSJNMzQ5LjkgMjM2LjNoLTY2LjF2LTU5LjRoNjYuMXY1OS40em0wLTIwNC4zaC02Ni4xdjYwLjdoNjYuMVYzMnptNzguMiAxNDQuOEgzNjJ2NTkuNGg2Ni4xdi01OS40em0tMTU2LjMtNzIuMWgtNjYuMXY2MC4xaDY2LjF2LTYwLjF6bTc4LjEgMGgtNjYuMXY2MC4xaDY2LjF2LTYwLjF6bTI3Ni44IDEwMGMtMTQuNC05LjctNDcuNi0xMy4yLTczLjEtOC40LTMuMy0yNC0xNi43LTQ0LjktNDEuMS02My43bC0xNC05LjMtOS4zIDE0Yy0xOC40IDI3LjgtMjMuNCA3My42LTMuNyAxMDMuOC04LjcgNC43LTI1LjggMTEuMS00OC40IDEwLjdIMi40Yy04LjcgNTAuOCA1LjggMTE2LjggNDQgMTYyLjEgMzcuMSA0My45IDkyLjcgNjYuMiAxNjUuNCA2Ni4yIDE1Ny40IDAgMjczLjktNzIuNSAzMjguNC0yMDQuMiAyMS40LjQgNjcuNi4xIDkxLjMtNDUuMiAxLjUtMi41IDYuNi0xMy4yIDguNS0xNy4xbC0xMy4zLTguOXptLTUxMS4xLTI3LjloLTY2djU5LjRoNjYuMXYtNTkuNHptNzguMSAwaC02Ni4xdjU5LjRoNjYuMXYtNTkuNHptNzguMSAwaC02Ni4xdjU5LjRoNjYuMXYtNTkuNHptLTc4LjEtNzIuMWgtNjYuMXY2MC4xaDY2LjF2LTYwLjF6Ii8+PC9zdmc+
 
   package:
     - use: atomist/package-sdm-skill/package
 
 parameters:
+  - string:
+      name: image
+      display_name: Docker Image
+      description: 'Docker image to run including optional tag (format image:tag)'
+      place_holder: alpine:3.11.3
+      required: true
+  - string:
+      name: command
+      display_name: Command & Arguments
+      description: Command to run inside the container
+      line_style: multiple
+      place_holder: '/bin/sh -c "echo $(cd /atm/home && ls -la | wc -l)"'
+      required: false
+  - string_array:
+      name: env
+      display_name: Environment Variables
+      description: Environment variables to be passed to the container (format KEY=VALUE)
+      required: false
   - repo_filter:
       name: repos
       display_name: Repository Selection
@@ -50,22 +67,6 @@ parameters:
       name: isBranch
       display_name: Branch Filter
       description: Filter pushes to repositories on matching branches (format regexp)
-      required: false
-  - string:
-      name: image
-      display_name: Docker Image
-      description: 'Docker image to run including optional tag (format image:tag)'
-      required: true
-  - string:
-      name: command
-      display_name: Command & Arguments
-      description: Command to run inside the container
-      line_style: multiple
-      required: false
-  - string_array:
-      name: env
-      display_name: Environment Variables
-      description: Environment variables to be passed to the container (format KEY=VALUE)
       required: false
 
 rules:
