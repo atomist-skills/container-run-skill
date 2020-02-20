@@ -56,7 +56,7 @@ parameters:
   - repo_filter:
       name: repos
       display_name: Repository Selection
-      description: Select for which pushes to repositories the configured container should run
+      description: ''
       required: false
   - string:
       name: hasFile
