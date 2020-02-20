@@ -2,10 +2,6 @@
 
 <!---atomist-skill-readme:start--->
 
-Atomist Skill to run Docker containers on pushes to Git repositories.
-
-## Configuration 
-
 This generic skill provides a way to run any Docker image on pushes to a repository.
 
 ## Contract
