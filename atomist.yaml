@@ -17,7 +17,7 @@
 skill:
   name: atomist/container-run-skill
   title: Docker Container Runner
-  version: 1.1.0
+  version: 1.1.1
   author: Atomist
   description: Run Docker containers on pushes to Git repositories
   documentation: |
