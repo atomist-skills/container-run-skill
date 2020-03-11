@@ -20,6 +20,12 @@ skill:
   version: 1.1.0
   author: Atomist
   description: Run Docker containers on pushes to Git repositories
+  documentation: |
+    Use this generic Docker container runner skill to run any tool or Docker image as a reaction to pushes to
+    Git repositories.  You can run linters, scanners or any other public Docker image.
+
+    This Skill imposes restrictions on the running Docker containers.  If you want to learn more about resource
+    limits and ways to increase applied quotas, [feel free to contact us](javascript: Intercom('showNewMessage');).
   category:
     - build
     - deploy
@@ -66,6 +72,7 @@ subscriptions:
     subscription OnPush {
       Push {
         repo {
+          url
           owner
           name
           org {
@@ -75,8 +82,68 @@ subscriptions:
           }
         }
         branch
+        timestamp
         after {
+          url
           sha
+          message
+          author {
+            login
+            person {
+              surname
+              forename
+              chatId {
+                screenName
+              }
+            }
+          }
+          committer {
+            login
+            person {
+              surname
+              forename
+              chatId {
+                screenName
+              }
+            }
+          }
+          tags {
+            name
+            release {
+              name
+            }
+          }
+          statuses {
+            context
+            description
+            targetUrl
+            state
+          }
+        }
+        commits {
+          sha
+          message
+          author {
+            login
+            person {
+              surname
+              forename
+              chatId {
+                screenName
+              }
+            }
+          }
+          committer {
+            login
+            person {
+              surname
+              forename
+              chatId {
+                screenName
+              }
+            }
+          }
         }
       }
     }
+
