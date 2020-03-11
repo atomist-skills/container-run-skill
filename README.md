@@ -5,7 +5,7 @@
 This generic skill provides a way to run any Docker image on pushes to a repository.
 
 ## Contract
-
+ 
 ### Requirements
 
 The container skill can use any Docker image that can be pulled from a public Docker registry.
