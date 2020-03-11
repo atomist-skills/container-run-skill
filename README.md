@@ -43,101 +43,101 @@ The event payload that triggered the container to run, will be stored in a file 
 env var. Here is an example structure of that event payload:
 
 ```
-    {
-      "data": {
-        "Push": [
+{
+  "data": {
+    "Push": [
+      {
+        "after": {
+          "author": {
+            "login": "ddgenome",
+            "person": {
+              "chatId": {
+                "screenName": "dd"
+              },
+              "forename": "David",
+              "surname": "Dooling"
+            }
+          },
+          "committer": {
+            "login": "ddgenome",
+            "person": {
+              "chatId": {
+                "screenName": "dd"
+              },
+              "forename": "David",
+              "surname": "Dooling"
+            }
+          },
+          "message": "Use exact version of automation-client",
+          "sha": "c90ea6375787238fff74794a937f7214a3b59135",
+          "statuses": [
+            {
+              "context": "sdm/atomist/atomist-sdm",
+              "description": "Atomist Software Delivery Machine goals: all succeeded",
+              "state": "success",
+              "targetUrl": "https://app.atomist.com/workspace/T29E48P34/goalset/faca2445-3aa5-42ae-988f-207553e01c90"
+            }
+          ],
+          "tags": [
+            {
+              "name": "1.9.1-1.9-fixes.20200311134607",
+              "release": null
+            },
+            {
+              "name": "1.9.1-1.9-fixes.20200311134607+sdm.1904",
+              "release": null
+            }
+          ],
+          "url": "https://github.com/atomist/sdm/commit/c90ea6375787238fff74794a937f7214a3b59135"
+        },
+        "branch": "1.9-fixes",
+        "commits": [
           {
-            "after": {
-              "author": {
-                "login": "ddgenome",
-                "person": {
-                  "chatId": {
-                    "screenName": "dd"
-                  },
-                  "forename": "David",
-                  "surname": "Dooling"
-                }
-              },
-              "committer": {
-                "login": "ddgenome",
-                "person": {
-                  "chatId": {
-                    "screenName": "dd"
-                  },
-                  "forename": "David",
-                  "surname": "Dooling"
-                }
-              },
-              "message": "Use exact version of automation-client",
-              "sha": "c90ea6375787238fff74794a937f7214a3b59135",
-              "statuses": [
-                {
-                  "context": "sdm/atomist/atomist-sdm",
-                  "description": "Atomist Software Delivery Machine goals: all succeeded",
-                  "state": "success",
-                  "targetUrl": "https://app.atomist.com/workspace/T29E48P34/goalset/faca2445-3aa5-42ae-988f-207553e01c90"
-                }
-              ],
-              "tags": [
-                {
-                  "name": "1.9.1-1.9-fixes.20200311134607",
-                  "release": null
+            "author": {
+              "login": "ddgenome",
+              "person": {
+                "chatId": {
+                  "screenName": "dd"
                 },
-                {
-                  "name": "1.9.1-1.9-fixes.20200311134607+sdm.1904",
-                  "release": null
-                }
-              ],
-              "url": "https://github.com/atomist/sdm/commit/c90ea6375787238fff74794a937f7214a3b59135"
-            },
-            "branch": "1.9-fixes",
-            "commits": [
-              {
-                "author": {
-                  "login": "ddgenome",
-                  "person": {
-                    "chatId": {
-                      "screenName": "dd"
-                    },
-                    "forename": "David",
-                    "surname": "Dooling"
-                  }
-                },
-                "committer": {
-                  "login": "ddgenome",
-                  "person": {
-                    "chatId": {
-                      "screenName": "dd"
-                    },
-                    "forename": "David",
-                    "surname": "Dooling"
-                  }
-                },
-                "message": "Use exact version of automation-client",
-                "sha": "c90ea6375787238fff74794a937f7214a3b59135"
+                "forename": "David",
+                "surname": "Dooling"
               }
-            ],
-            "repo": {
-              "name": "sdm",
-              "org": {
-                "provider": {
-                  "apiUrl": "https://api.github.com/"
-                }
-              },
-              "owner": "atomist",
-              "url": "https://github.com/atomist/sdm"
             },
-            "timestamp": "2020-03-11T13:44:39.561Z"
+            "committer": {
+              "login": "ddgenome",
+              "person": {
+                "chatId": {
+                  "screenName": "dd"
+                },
+                "forename": "David",
+                "surname": "Dooling"
+              }
+            },
+            "message": "Use exact version of automation-client",
+            "sha": "c90ea6375787238fff74794a937f7214a3b59135"
           }
-        ]
-      },
-      "extensions": {
-        "operationName": "OnPush",
-        "query_id": "2bf0ca4d-b575-4dc1-8b00-7591680c53ab",
-        "correlation_id": "2461a01c-eda8-4e47-a4ab-eef8ff6003c8",
-        "request_id": "e6f1fd80ce235ceb56799bb2b7a47c82"
+        ],
+        "repo": {
+          "name": "sdm",
+          "org": {
+            "provider": {
+              "apiUrl": "https://api.github.com/"
+            }
+          },
+          "owner": "atomist",
+          "url": "https://github.com/atomist/sdm"
+        },
+        "timestamp": "2020-03-11T13:44:39.561Z"
       }
-    }
+    ]
+  },
+  "extensions": {
+    "operationName": "OnPush",
+    "query_id": "2bf0ca4d-b575-4dc1-8b00-7591680c53ab",
+    "correlation_id": "2461a01c-eda8-4e47-a4ab-eef8ff6003c8",
+    "request_id": "e6f1fd80ce235ceb56799bb2b7a47c82"
+  }
+}
 ```
 
 ## Configuration

@@ -24,8 +24,10 @@ skill:
     Use this generic Docker container runner skill to run any tool or Docker image as a reaction to pushes to
     Git repositories.  You can run linters, scanners or any other public Docker image.
 
+    Review the README to learn more the container runtime environment.
+
     This Skill imposes restrictions on the running Docker containers.  If you want to learn more about resource
-    limits and ways to increase applied quotas, [feel free to contact us](javascript: Intercom('showNewMessage');).
+    limits and ways to increase applied quotas, [feel free to contact us](mailto:support@atomist.com).
   category:
     - build
     - deploy
