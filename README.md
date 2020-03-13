@@ -30,9 +30,9 @@ The following environment variables are available inside the container:
     ATOMIST_INPUT_DIR=/atm/input
     ATOMIST_OUTPUT_DIR=/atm/output
     ATOMIST_HOME=/atm/home
-    TOPIC=<name of PubSub topic to write responses to>
-    STORAGE=<name of Storage bucket to write objects to>
-    GRAPHQL_ENDPOINT=<url for querying the GraphQL API>
+    ATOMIST_TOPIC=<name of PubSub topic to write responses to>
+    ATOMIST_STORAGE=<name of Storage bucket to write objects to>
+    ATOMIST_GRAPHQL_ENDPOINT=<url for querying the GraphQL API>
     PWD=/atm/home
 
 A couple of the env vars are worth exploring, the others are self-explanatory I hope:
