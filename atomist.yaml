@@ -58,6 +58,12 @@ parameters:
       display_name: Environment Variables
       description: Environment variables to be passed to the container (format KEY=VALUE)
       required: false
+  - string:
+      name: docker_matchers
+      display_name: Problem Extraction
+      description: Configure regular expressions to capture warnings and errors from log output
+      line_style: multiple
+      required: false
   - repo_filter:
       name: repos
       display_name: Repository Selection
