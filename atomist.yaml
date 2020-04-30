@@ -77,7 +77,7 @@ parameters:
       name: docker_working_dir
       display_name: Container Working Directory
       description: Working directory for the container. The repository is being cloned into `/atm/home`.
-      placeholder: /atm/home
+      place_holder: /atm/home
       required: false
   - string:
       name: docker_matchers
