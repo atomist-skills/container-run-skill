@@ -79,6 +79,11 @@ parameters:
       description: Working directory for the container. The repository is being cloned into `/atm/home`.
       place_holder: /atm/home
       required: false
+  - string_array:
+      name: docker_cache
+      display_name: File Cache
+      description: Glob patterns of files to cache. Caching is only available from within the `/atm/home` directory.
+      required: false
   - string:
       name: docker_matchers
       display_name: Problem Extraction
