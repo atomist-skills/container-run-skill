@@ -6,13 +6,7 @@ Skill to run Docker containers as reactions to Git pushes.
 
 # What it's useful for
 
-Use this generic Docker container runner skill to run any tool or Docker image as a reaction to pushes to
-Git repositories. You can run linters, scanners or any other public Docker image.
-
-Review the README to learn more the container runtime environment.
-
-This Skill imposes restrictions on the running Docker containers.  If you want to learn more about resource
-limits and ways to increase applied quotas, [feel free to contact us](mailto:support@atomist.com).
+Run any command in a Docker image, triggered by pushes to repositories. Run your favorite linter, code formatter, code scanner or any other task that you want to run in response to a push.
     
 # Before you get started
 
@@ -22,24 +16,27 @@ Connect and configure this integration:
 
 The **GitHub** integration must be configured in order to use this skill. At least one repository must be selected. 
 
+This skill imposes restrictions on the running Docker containers.  If you would like to know more about resource
+limits and quotas, [contact us](mailto:support@atomist.com).
+
 # How to configure
 
 1. **Select the Docker image to run**
     
     ![Docker Image](docs/images/image.png)
     
-    This skill can run any public Docker image as a reaction to a Git push.
+    This skill can run any public Docker image in response to a Git push.
     
-    Please provide the complete Docker image name, eg. `ubuntu:latest` or `gcr.io/kaniko-project/executor:v0.19.0`.
+    Enter the complete Docker image name, eg. `ubuntu:latest` or `gcr.io/kaniko-project/executor:v0.19.0`.
     
-    Note: Support for running private Docker images is under way. Please reach out if you want to run your 
+    Note: Support for running private Docker images is under development. Contact us if you would like to run your own 
     private images.
     
 2. **Provide the command to run**
     
     ![Docker Command](docs/images/command.png)
     
-    Use this parameter to configure the command and arguments you want to run inside the container, eg:
+    Configure the command and arguments that you want to run inside the container. For example:
     
     `/bin/sh -c "echo $(cd /atm/home && ls -la | wc -l)"`
     
@@ -47,8 +44,7 @@ The **GitHub** integration must be configured in order to use this skill. At lea
 
     ![Docker Environment Variables](docs/images/env-vars.png)
     
-    A lot of Docker images require the use of environment variables. Use this configuration parameter to 
-    provide those environment variables in the `KEY=VALUE` format, eg:
+    Specify any environment variables needed for your image and commands to run. The environment variable format is `KEY=VALUE`. For example:
     
     `GIT_URL=https://github.com`
     
@@ -59,8 +55,7 @@ The **GitHub** integration must be configured in order to use this skill. At lea
     By default this skill doesn't change the working directory of the container. Use this setting to provide an
     explicit working directory for your container. 
     
-    This can be used to change the working directory to `/atm/home` directory which contains the cloned sources of the
-    repository you pushed to.
+    The working directory `/atm/home` contains the cloned sources of the repository you pushed to.
 
 5. **Determine repository scope**
 
@@ -78,15 +73,15 @@ The **GitHub** integration must be configured in order to use this skill. At lea
     **Requirements**
 
     The container skill can use any Docker image that can be pulled from a public Docker registry. There are no 
-    requirements in terms of what is inside the container!
+    requirements for what is in the container.
 
     **Project**
 
-    The Git project will be cloned into `/atm/home` at the SHA of the push that trigger this container skill.
+    The repository will be cloned into `/atm/home` at the SHA of the push that trigger this skill.
 
     **Exit Code**
 
-    A container that exits with a non-zero exit code will always fail the skill execution.
+    A container that exits with a non-zero exit code will always show as a failed skill execution.
 
     **Environment Variables**
 
@@ -104,8 +99,8 @@ The **GitHub** integration must be configured in order to use this skill. At lea
 
     **Event Payload**
 
-    The event payload that triggered the container to run, will be stored in a file referenced by the `ATOMIST_PAYLOAD` 
-    environment variable. Here is an example structure of that event payload:
+    The event payload that triggered the container to run will be stored in a file referenced by the `ATOMIST_PAYLOAD` 
+    environment variable. Here is an example event payload:
 
     ```
     {
