@@ -57,7 +57,21 @@ limits and quotas, [contact us](mailto:support@atomist.com).
     
     The working directory `/atm/home` contains the cloned sources of the repository you pushed to.
 
-5. **Determine repository scope**
+5. **Enable file caching for faster execution times**
+
+    You can speed up executions times by enabling file caching for certain artifacts, eg. dependencies, by providing
+    glob patterns of files you'd like to cache between executions. 
+    
+    Please note that only files within the `/atm/home` directory can be cached at this time.
+    
+    Caching Maven dependencies from a local repository could be accomplished with the following pattern:
+    
+    `.m2/**`
+    
+    To get Maven to download dependencies into the `/atm/home/.m2` directory, provide an additional parameter to the 
+    Maven command line: `mvn install -Dmaven.repo.local=/atm/home/.m2`   
+
+6. **Determine repository scope**
 
     ![Repository filter](docs/images/repo-filter.png)
 
