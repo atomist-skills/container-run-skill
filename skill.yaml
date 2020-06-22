@@ -101,6 +101,12 @@ skill:
         displayName: File Cache
         description: Glob patterns of files to cache. Caching is only available from within the `/atm/home` directory.
         required: false
+    - boolean:
+        name: docker_check
+        displayName: Create GitHub check
+        description: Automatically create a GitHub check on the commit triggering the container execution
+        required: false
+        defaultValue: true
     - string:
         name: docker_matchers
         displayName: Problem Extraction
