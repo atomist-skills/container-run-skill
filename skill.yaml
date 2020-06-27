@@ -20,7 +20,7 @@ skill:
   namespace: atomist
   displayName: Docker Container Runner
   author: Atomist
-  description: Run Docker containers on pushes to Git repositories
+  description: Run Docker containers on pushes to your Git repositories
   documentation: |
     Use this generic Docker container runner skill to run any
     tool or Docker image as a reaction to pushes to Git repositories.
