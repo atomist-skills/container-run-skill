@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/container-run-skill/compare/2.1.1...HEAD)
 
+### Changed
+
+-   Update description. [bb1e7a1](https://github.com/atomist-skills/container-run-skill/commit/bb1e7a1b51a74f7b91511fda4be8f59d9c034340)
+
 ## [2.1.1](https://github.com/atomist-skills/container-run-skill/compare/2.1.0...2.1.1) - 2020-06-23
 
 ### Added
