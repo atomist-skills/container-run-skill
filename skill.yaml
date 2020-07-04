@@ -75,7 +75,7 @@ skill:
     - string:
         name: docker_image
         displayName: Docker Image
-        description: 'Docker image to run including optional tag (format image:tag)'
+        description: "Docker image to run including optional tag (format image:tag)"
         placeHolder: alpine:3.11.3
         required: true
     - string:
@@ -116,7 +116,7 @@ skill:
     - repoFilter:
         name: repos
         displayName: Which repositories
-        description: ''
+        description: ""
         required: false
 
   artifacts:
@@ -203,4 +203,3 @@ skill:
           }
         }
       }
-
