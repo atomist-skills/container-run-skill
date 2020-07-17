@@ -74,31 +74,31 @@ skill:
   parameters:
     - string:
         name: docker_image
-        displayName: Docker Image
+        displayName: Docker image
         description: "Docker image to run including optional tag (format image:tag)"
         placeHolder: alpine:3.11.3
         required: true
     - string:
         name: docker_command
-        displayName: Command & Arguments
+        displayName: Command & arguments
         description: Command to run inside the container
         lineStyle: multiple
         placeHolder: '/bin/sh -c "echo $(cd /atm/home && ls -la | wc -l)"'
         required: false
     - stringArray:
         name: docker_env
-        displayName: Environment Variables
+        displayName: Environment variables
         description: Environment variables to be passed to the container (format KEY=VALUE)
         required: false
     - string:
         name: docker_working_dir
-        displayName: Container Working Directory
+        displayName: Container working directory
         description: Working directory for the container. The repository is being cloned into `/atm/home`.
         placeHolder: /atm/home
         required: false
     - stringArray:
         name: docker_cache
-        displayName: File Cache
+        displayName: File cache
         description: Glob patterns of files to cache. Caching is only available from within the `/atm/home` directory.
         required: false
     - boolean:
@@ -109,7 +109,7 @@ skill:
         defaultValue: true
     - string:
         name: docker_matchers
-        displayName: Problem Extraction
+        displayName: Problem extraction
         description: Configure regular expressions to capture warnings and errors from log output
         lineStyle: multiple
         required: false
