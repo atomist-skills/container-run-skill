@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -   Add missing resource providers to README. [b28148e](https://github.com/atomist-skills/container-run-skill/commit/b28148eef5af429e16e248a260a6c569f4fca19e)
 
+### Fixed
+
+-   Polish parameter names. [fb125a4](https://github.com/atomist-skills/container-run-skill/commit/fb125a4538b9937099993ee37ba033a93ed55447)
+
 ## [2.1.2](https://github.com/atomist-skills/container-run-skill/compare/2.1.1...2.1.2) - 2020-06-29
 
 ### Changed
