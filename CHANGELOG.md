@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/container-run-skill/compare/2.1.6...HEAD)
 
+### Added
+
+-   Set GitHub check for push executions. [#3](https://github.com/atomist-skills/container-run-skill/issues/3)
+
 ## [2.1.6](https://github.com/atomist-skills/container-run-skill/compare/2.1.5...2.1.6) - 2020-07-24
 
 ### Fixed
