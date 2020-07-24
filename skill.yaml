@@ -50,13 +50,13 @@ skill:
       minRequired: 1
       maxAllowed: 1
     - name: slack
-      displayName: Slack
-      description: Slack
-      typeName: SlackResourceProvider
+      displayName: Chat
+      description: Chat
+      typeName: ChatProvider
       minRequired: 0
       maxAllowed: 1
     - name: docker
-      displayName: docker
+      displayName: Docker Registeries
       description: Docker Registeries
       typeName: DockerRegistry
       minRequired: 0
