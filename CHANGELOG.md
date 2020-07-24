@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/container-run-skill/compare/2.1.5...HEAD)
 
+### Fixed
+
+-   Fix resource provider names. [cc8a703](https://github.com/atomist-skills/container-run-skill/commit/cc8a703706b20d18ad869d146a8bb0eacdffbc85)
+
 ## [2.1.5](https://github.com/atomist-skills/container-run-skill/compare/2.1.4...2.1.5) - 2020-07-17
 
 ## [2.1.4](https://github.com/atomist-skills/container-run-skill/compare/2.1.2...2.1.4) - 2020-07-17
