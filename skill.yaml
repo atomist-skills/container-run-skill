@@ -32,9 +32,7 @@ skill:
     If you want to learn more about resource limits and ways to increase
     applied quotas, [feel free to contact us](mailto:support@atomist.com).
   category:
-    - BUILD
-    - DEPLOY
-    - DEVEX
+    - DEVOPS
   technology:
     - docker
   license: Apache-2.0
