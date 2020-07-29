@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/container-run-skill/compare/2.1.7...HEAD)
 
+### Fixed
+
+-   Fix categories. [ec10bdf](https://github.com/atomist-skills/container-run-skill/commit/ec10bdfcf44f5d2dc6b91c047dfc750cc9411899)
+
 ## [2.1.7](https://github.com/atomist-skills/container-run-skill/compare/2.1.6...2.1.7) - 2020-07-26
 
 ### Added
