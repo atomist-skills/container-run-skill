@@ -31,10 +31,10 @@ skill:
     This Skill imposes restrictions on the running Docker containers.
     If you want to learn more about resource limits and ways to increase
     applied quotas, [feel free to contact us](mailto:support@atomist.com).
-  category:
+  categories:
     - DEVOPS
-  technology:
-    - docker
+  technologies:
+    - DOCKER
   license: Apache-2.0
   homepageUrl: https://github.com/atomist-skills/container-skill
   repositoryUrl: https://github.com/atomist-skills/container-skill.git
