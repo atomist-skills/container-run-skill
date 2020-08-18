@@ -58,15 +58,10 @@ skill:
       description: Docker Registeries
       typeName: DockerRegistry
       minRequired: 0
-    - name: gcp
-      displayName: Google Cloud Platform
-      description: Google Cloud Platform
-      typeName: GoogleCloudPlatformProvider
-      minRequired: 0
-    - name: maven
-      displayName: Maven Repository
-      description: Maven Repository
-      typeName: MavenRepositoryProvider
+    - name: secret
+      displayName: Secrets
+      description: Secrets
+      typeName: SecretProvider
       minRequired: 0
 
   parameters:
