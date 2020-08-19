@@ -63,6 +63,42 @@ skill:
       minRequired: 0
 
   parameters:
+    - multiChoice:
+        name: subscription_filter
+        displayName: Triggers
+        description: "Select one or more trigger events to run the container"
+        options:
+          - text: GitHub > branch
+            value: onBranch
+          - text: GitHub > commit check
+            value: onCheckRun
+          - text: GitHub > issue or pull request comment
+            value: onComment
+          - text: GitHub > deleted branch
+            value: onDeletedBranch
+          - text: GitHub > issue
+            value: onIssue
+          - text: GitHub > new repository
+            value: onNewRepo
+          - text: GitHub > pull request
+            value: onPullRequest
+          - text: GitHub > push
+            value: onPush
+          - text: GitHub > release
+            value: onRelease
+          - text: GitHub > pull request review
+            value: onReview
+          - text: GitHub > commit status
+            value: onStatus
+          - text: GitHub > tag
+            value: onTag
+          - text: Chat > channel linked
+            value: onChannelLink
+          - text: Chat > new user
+            value: onNewUser
+          - text: Chat > user joined channel
+            value: onUserJoiningChannel
+        required: true
     - string:
         name: docker_image
         displayName: Docker image
@@ -116,4 +152,18 @@ skill:
         image: ${configuration[0].parameters.docker_image}
 
   subscriptions:
-    - '@atomist/skill/onPush'
+    - '@atomist/skill/chat/onChannelLink'
+    - '@atomist/skill/chat/onNewUser'
+    - '@atomist/skill/chat/onUserJoiningChannel'
+    - '@atomist/skill/github/onBranch'
+    - '@atomist/skill/github/onCheckRun'
+    - '@atomist/skill/github/onComment'
+    - '@atomist/skill/github/onDeletedBranch'
+    - '@atomist/skill/github/onIssue'
+    - '@atomist/skill/github/onNewRepo'
+    - '@atomist/skill/github/onPullRequest'
+    - '@atomist/skill/github/onPush'
+    - '@atomist/skill/github/onRelease'
+    - '@atomist/skill/github/onReview'
+    - '@atomist/skill/github/onStatus'
+    - '@atomist/skill/github/onTag'

@@ -17,4 +17,4 @@
 apiVersion: 1
 package:
   type: atomist/skill
-  command: atm-skill generate --no-validate
+  command: npm i -g @atomist/skill@branch-master && atm-skill generate --no-validate
