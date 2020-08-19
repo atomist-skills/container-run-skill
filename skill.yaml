@@ -152,18 +152,18 @@ skill:
         image: ${configuration[0].parameters.docker_image}
 
   subscriptions:
-    - '@atomist/skill/chat/onChannelLink'
-    - '@atomist/skill/chat/onNewUser'
-    - '@atomist/skill/chat/onUserJoiningChannel'
-    - '@atomist/skill/github/onBranch'
-    - '@atomist/skill/github/onCheckRun'
-    - '@atomist/skill/github/onComment'
-    - '@atomist/skill/github/onDeletedBranch'
-    - '@atomist/skill/github/onIssue'
-    - '@atomist/skill/github/onNewRepo'
-    - '@atomist/skill/github/onPullRequest'
-    - '@atomist/skill/github/onPush'
-    - '@atomist/skill/github/onRelease'
-    - '@atomist/skill/github/onReview'
-    - '@atomist/skill/github/onStatus'
-    - '@atomist/skill/github/onTag'
+    - "@atomist/skill/chat/onChannelLink"
+    - "@atomist/skill/chat/onNewUser"
+    - "@atomist/skill/chat/onUserJoiningChannel"
+    - "@atomist/skill/github/onBranch"
+    - "@atomist/skill/github/onCheckRun"
+    - "@atomist/skill/github/onComment"
+    - "@atomist/skill/github/onDeletedBranch"
+    - "@atomist/skill/github/onIssue"
+    - "@atomist/skill/github/onNewRepo"
+    - "@atomist/skill/github/onPullRequest"
+    - "@atomist/skill/github/onPush"
+    - "@atomist/skill/github/onRelease"
+    - "@atomist/skill/github/onReview"
+    - "@atomist/skill/github/onStatus"
+    - "@atomist/skill/github/onTag"
