@@ -140,14 +140,14 @@ skill:
         description: Configure regular expressions to capture warnings and errors from log output
         lineStyle: multiple
         required: false
-    - repoFilter:
-        name: repos
-        displayName: Which repositories
-        description: ""
-        required: false
     - string:
         name: env_map
         displayName: ""
+        description: ""
+        required: false
+    - repoFilter:
+        name: repos
+        displayName: Which repositories
         description: ""
         required: false
 
