@@ -52,13 +52,13 @@ skill:
       minRequired: 0
       maxAllowed: 1
     - name: docker
-      displayName: Docker Registeries
-      description: Docker Registeries
+      displayName: Docker registeries
+      description: Docker registries to pull images from
       typeName: DockerRegistry
       minRequired: 0
     - name: secret
       displayName: Secrets
-      description: Secrets
+      description: Make configured secrets available from within the container
       typeName: SecretProvider
       minRequired: 0
 
