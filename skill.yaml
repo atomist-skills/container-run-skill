@@ -145,6 +145,11 @@ skill:
         displayName: Which repositories
         description: ""
         required: false
+    - string:
+        name: env_map
+        displayName: ""
+        description: ""
+        required: false
 
   artifacts:
     docker:
