@@ -56,6 +56,11 @@ skill:
       description: Docker registries to pull images from
       typeName: DockerRegistry
       minRequired: 0
+    - name: gcp
+      displayName: Google Cloud Platform
+      description: Select a Google Cloud Platform provider
+      typeName: GoogleCloudPlatformProvider
+      minRequired: 0
     - name: secret
       displayName: Secrets
       description: Make configured secrets available from within the container
