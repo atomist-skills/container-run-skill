@@ -68,6 +68,11 @@ skill:
       minRequired: 0
 
   parameters:
+    - string:
+        name: env_map
+        displayName: ""
+        description: ""
+        required: false
     - multiChoice:
         name: subscription_filter
         displayName: Triggers
@@ -144,11 +149,6 @@ skill:
         displayName: Problem extraction
         description: Configure regular expressions to capture warnings and errors from log output
         lineStyle: multiple
-        required: false
-    - string:
-        name: env_map
-        displayName: ""
-        description: ""
         required: false
     - repoFilter:
         name: repos
