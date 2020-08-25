@@ -38,7 +38,7 @@ limits and quotas, [contact us](mailto:support@atomist.com).
     Note: Support for running private Docker images is under development. Contact us if you would like to run your own
     private images.
 
-2. **Provide the command to run**
+1. **Provide the command to run**
 
     ![Docker Command](docs/images/command.png)
 
@@ -46,7 +46,7 @@ limits and quotas, [contact us](mailto:support@atomist.com).
 
     `/bin/sh -c "echo $(cd /atm/home && ls -la | wc -l)"`
 
-3. **Provide optional environment variables**
+1. **Provide optional environment variables**
 
     ![Docker Environment Variables](docs/images/env-vars.png)
 
@@ -54,7 +54,7 @@ limits and quotas, [contact us](mailto:support@atomist.com).
 
     `GIT_URL=https://github.com`
 
-4. **Overwrite the working directory**
+1. **Overwrite the working directory**
 
     ![Docker Working Directory](docs/images/working-dir.png)
 
@@ -63,7 +63,7 @@ limits and quotas, [contact us](mailto:support@atomist.com).
 
     The working directory `/atm/home` contains the cloned sources of the repository you pushed to.
 
-5. **Enable file caching for faster execution times**
+1. **Enable file caching for faster execution times**
 
     You can speed up executions times by enabling file caching for certain artifacts — for example, dependencies —
     by providing glob patterns of files you'd like to cache between executions.
@@ -77,7 +77,7 @@ limits and quotas, [contact us](mailto:support@atomist.com).
     To instruct Maven to download dependencies into the `/atm/home/.m2` directory, provide an additional parameter to the
     Maven command line: `mvn install -Dmaven.repo.local=/atm/home/.m2`
 
-6. **Determine repository scope**
+1. **Determine repository scope**
 
     ![Repository filter](docs/images/repo-filter.png)
 
@@ -88,141 +88,11 @@ limits and quotas, [contact us](mailto:support@atomist.com).
 
 # How to use the Container Run Skill
 
-1. **Review the Docker container contract**
+1. **[Review the Docker container contract and available triggers](https://github.com/atomist-skills/container-run-skill/blob/master/docs/CONTRACT.md)**
 
-    **Requirements**
+1. **Configure the skill, set Docker image, command and environment variables**
 
-    The container skill can use any Docker image that can be pulled from a public Docker registry. There are no
-    requirements for what is in the container.
-
-    **Project**
-
-    The repository will be cloned into `/atm/home` at the SHA of the push that trigger this skill.
-
-    **Exit Code**
-
-    A container that exits with a non-zero exit code will always show as a failed skill execution.
-
-    **Environment Variables**
-
-    The following environment variables are available inside the container:
-
-    - `ATOMIST_WORKSPACE_ID=AZQMH6PO7` - Id of the Atomist workspace
-    - `ATOMIST_CORRELATION_ID=<random id generate for the skill invocation>` - Unique execution correlation id
-    - `ATOMIST_PAYLOAD=/atm/payload.json` - Pointer to a file containing the triggering event payload
-    - `ATOMIST_INPUT_DIR=/atm/input` - Directory that can contain additional input like provider secrets
-    - `ATOMIST_OUTPUT_DIR=/atm/output` - Directory that can be used to store output
-    - `ATOMIST_HOME=/atm/home` - Directory containing the cloned repository source files
-    - `ATOMIST_TOPIC=<name of PubSub topic to write responses to>` - Name of PubSub topic to write responses to
-    - `ATOMIST_STORAGE=<name of Storage bucket to write objects to>` - Name of Storage bucket to write objects to
-    - `ATOMIST_GRAPHQL_ENDPOINT=<url for querying the GraphQL API>` - Url to the Atomist GraphQL endpoint
-
-    **Event Payload**
-
-    The event payload that triggered the container to run will be stored in a file referenced by the `ATOMIST_PAYLOAD`
-    environment variable. Here is an example event payload:
-
-    ```
-    {
-      "data": {
-        "Push": [
-          {
-            "after": {
-              "author": {
-                "login": "ddgenome",
-                "person": {
-                  "chatId": {
-                    "screenName": "dd"
-                  },
-                  "forename": "David",
-                  "surname": "Dooling"
-                }
-              },
-              "committer": {
-                "login": "ddgenome",
-                "person": {
-                  "chatId": {
-                    "screenName": "dd"
-                  },
-                  "forename": "David",
-                  "surname": "Dooling"
-                }
-              },
-              "message": "Use exact version of automation-client",
-              "sha": "c90ea6375787238fff74794a937f7214a3b59135",
-              "statuses": [
-                {
-                  "context": "sdm/atomist/atomist-sdm",
-                  "description": "Atomist Software Delivery Machine goals: all succeeded",
-                  "state": "success",
-                  "targetUrl": "https://app.atomist.com/workspace/T29E48P34/goalset/faca2445-3aa5-42ae-988f-207553e01c90"
-                }
-              ],
-              "tags": [
-                {
-                  "name": "1.9.1-1.9-fixes.20200311134607",
-                  "release": null
-                },
-                {
-                  "name": "1.9.1-1.9-fixes.20200311134607+sdm.1904",
-                  "release": null
-                }
-              ],
-              "url": "https://github.com/atomist/sdm/commit/c90ea6375787238fff74794a937f7214a3b59135"
-            },
-            "branch": "1.9-fixes",
-            "commits": [
-              {
-                "author": {
-                  "login": "ddgenome",
-                  "person": {
-                    "chatId": {
-                      "screenName": "dd"
-                    },
-                    "forename": "David",
-                    "surname": "Dooling"
-                  }
-                },
-                "committer": {
-                  "login": "ddgenome",
-                  "person": {
-                    "chatId": {
-                      "screenName": "dd"
-                    },
-                    "forename": "David",
-                    "surname": "Dooling"
-                  }
-                },
-                "message": "Use exact version of automation-client",
-                "sha": "c90ea6375787238fff74794a937f7214a3b59135"
-              }
-            ],
-            "repo": {
-              "name": "sdm",
-              "org": {
-                "provider": {
-                  "apiUrl": "https://api.github.com/"
-                }
-              },
-              "owner": "atomist",
-              "url": "https://github.com/atomist/sdm"
-            },
-            "timestamp": "2020-03-11T13:44:39.561Z"
-          }
-        ]
-      },
-      "extensions": {
-        "operationName": "OnPush",
-        "query_id": "2bf0ca4d-b575-4dc1-8b00-7591680c53ab",
-        "correlation_id": "2461a01c-eda8-4e47-a4ab-eef8ff6003c8",
-        "request_id": "e6f1fd80ce235ceb56799bb2b7a47c82"
-      }
-    }
-    ```
-
-2. **Configure the skill, set Docker image, command and environment variables**
-
-3. **Every time you push to a repository, the Docker container will run**
+1. **Every time you push to a repository, the Docker container will run**
 
 To create feature requests or bug reports, create an [issue in the repository for this skill](https://github.com/atomist-skills/container-run-skill/issues).
 See the [code](https://github.com/atomist-skills/container-run-skill) for the skill.
