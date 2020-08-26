@@ -9,25 +9,61 @@ requirements for what is in the container.
 
 ## Trigger Payloads
 
-The following skill triggers are available. 
+The following skill triggers are available.
 
-The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` environment variable. 
+The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` environment variable.
 
 ### GitHub > branch
 
-````json
+```json
 {
   "data": {
     "Branch": [
       {
         "commit": {
           "author": {
-            "login": "atomist-bot",
-            "person": null
+            "login": "cdupuis",
+            "person": {
+              "chatId": {
+                "chatTeam": {
+                  "id": "T29E48P34"
+                },
+                "screenName": "cd"
+              },
+              "emails": [
+                {
+                  "address": "cd@atomist.com"
+                }
+              ],
+              "forename": "Christian",
+              "gitHubId": {
+                "login": "cdupuis"
+              },
+              "name": "Christian Dupuis",
+              "surname": "Dupuis"
+            }
           },
           "committer": {
-            "login": "atomist-bot",
-            "person": null
+            "login": "cdupuis",
+            "person": {
+              "chatId": {
+                "chatTeam": {
+                  "id": "T29E48P34"
+                },
+                "screenName": "cd"
+              },
+              "emails": [
+                {
+                  "address": "cd@atomist.com"
+                }
+              ],
+              "forename": "Christian",
+              "gitHubId": {
+                "login": "cdupuis"
+              },
+              "name": "Christian Dupuis",
+              "surname": "Dupuis"
+            }
           },
           "message": "npm license usage update\n\n[atomist:generated]\n[atomist-skill:atomist/npm-license-usage-skill]",
           "sha": "8f7a4470c94bef1f63f8b96f65a44161ab02b68f"
@@ -69,11 +105,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "9b8f66c95bb0b4197e8f2d447ac78c7e"
   }
 }
-````
+```
 
 ### GitHub > commit check
 
-````json
+```json
 {
   "data": {
     "CheckRun": [
@@ -86,12 +122,48 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
           "appSlug": "atomist",
           "commit": {
             "author": {
-              "login": "atomist-bot",
-              "person": null
+              "login": "cdupuis",
+              "person": {
+                "chatId": {
+                  "chatTeam": {
+                    "id": "T29E48P34"
+                  },
+                  "screenName": "cd"
+                },
+                "emails": [
+                  {
+                    "address": "cd@atomist.com"
+                  }
+                ],
+                "forename": "Christian",
+                "gitHubId": {
+                  "login": "cdupuis"
+                },
+                "name": "Christian Dupuis",
+                "surname": "Dupuis"
+              }
             },
             "committer": {
-              "login": "atomist-bot",
-              "person": null
+              "login": "cdupuis",
+              "person": {
+                "chatId": {
+                  "chatTeam": {
+                    "id": "T29E48P34"
+                  },
+                  "screenName": "cd"
+                },
+                "emails": [
+                  {
+                    "address": "cd@atomist.com"
+                  }
+                ],
+                "forename": "Christian",
+                "gitHubId": {
+                  "login": "cdupuis"
+                },
+                "name": "Christian Dupuis",
+                "surname": "Dupuis"
+              }
             },
             "message": "npm license usage update\n\n[atomist:generated]\n[atomist-skill:atomist/npm-license-usage-skill]",
             "repo": {
@@ -143,20 +215,37 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "07b53f5038f6e8669e1f76b7f6cb2d34"
   }
 }
-````
+```
 
 ### GitHub > issue or pull request comment
 
-````json
+```json
 {
   "data": {
     "Comment": [
       {
         "body": "Pull request auto merged:\n\n* No reviews\n* 1 successful check\n\n<!--\n  [atomist:generated]\n  [atomist-skill:atomist/github-auto-merge-skill]\n  [atomist-correlation-id:79848124-f09f-405b-87fe-bd7e96dd4a03.INxc6G8beCHhk3ouCFdri]\n-->",
         "by": {
-          "login": "atomist[bot]",
-          "name": "atomist[bot]",
-          "person": null
+          "login": "cdupuis",
+          "person": {
+            "chatId": {
+              "chatTeam": {
+                "id": "T29E48P34"
+              },
+              "screenName": "cd"
+            },
+            "emails": [
+              {
+                "address": "cd@atomist.com"
+              }
+            ],
+            "forename": "Christian",
+            "gitHubId": {
+              "login": "cdupuis"
+            },
+            "name": "Christian Dupuis",
+            "surname": "Dupuis"
+          }
         },
         "gitHubId": "680084298",
         "issue": null,
@@ -178,8 +267,26 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
           "state": "closed",
           "title": "npm update changes",
           "author": {
-            "login": "atomist[bot]",
-            "person": null
+            "login": "cdupuis",
+            "person": {
+              "chatId": {
+                "chatTeam": {
+                  "id": "T29E48P34"
+                },
+                "screenName": "cd"
+              },
+              "emails": [
+                {
+                  "address": "cd@atomist.com"
+                }
+              ],
+              "forename": "Christian",
+              "gitHubId": {
+                "login": "cdupuis"
+              },
+              "name": "Christian Dupuis",
+              "surname": "Dupuis"
+            }
           },
           "reviews": [],
           "repo": {
@@ -220,23 +327,59 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "156b1edb5069df8e4698eb6f808d05fd"
   }
 }
-````
+```
 
 ### GitHub > deleted branch
 
-````json
+```json
 {
   "data": {
     "DeletedBranch": [
       {
         "commit": {
           "author": {
-            "login": "atomist-bot",
-            "person": null
+            "login": "cdupuis",
+            "person": {
+              "chatId": {
+                "chatTeam": {
+                  "id": "T29E48P34"
+                },
+                "screenName": "cd"
+              },
+              "emails": [
+                {
+                  "address": "cd@atomist.com"
+                }
+              ],
+              "forename": "Christian",
+              "gitHubId": {
+                "login": "cdupuis"
+              },
+              "name": "Christian Dupuis",
+              "surname": "Dupuis"
+            }
           },
           "committer": {
-            "login": "atomist-bot",
-            "person": null
+            "login": "cdupuis",
+            "person": {
+              "chatId": {
+                "chatTeam": {
+                  "id": "T29E48P34"
+                },
+                "screenName": "cd"
+              },
+              "emails": [
+                {
+                  "address": "cd@atomist.com"
+                }
+              ],
+              "forename": "Christian",
+              "gitHubId": {
+                "login": "cdupuis"
+              },
+              "name": "Christian Dupuis",
+              "surname": "Dupuis"
+            }
           },
           "message": "npm update changes\n\n[atomist:generated]\n[atomist-skill:atomist/npm-audit-skill]",
           "sha": "9d882381e1d982f86376c4c101c62059f2dbe3a2"
@@ -278,11 +421,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "e75ecd5559232d5b94bd89e15607def9"
   }
 }
-````
+```
 
 ### GitHub > issue
 
-````json
+```json
 {
   "data": {
     "Issue": [
@@ -374,11 +517,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "3cff55980434c9fa905c20aec8156de9"
   }
 }
-````
+```
 
 ### GitHub > new repository
 
-````json
+```json
 {
   "data": {
     "Repo": [
@@ -416,11 +559,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "26be1543904d0a466468778818b65ae0"
   }
 }
-````
+```
 
 ### GitHub > pull request
 
-````json
+```json
 {
   "data": {
     "PullRequest": [
@@ -441,17 +584,71 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
         "createdAt": "2020-08-25T15:08:23Z",
         "title": "npm update changes",
         "author": {
-          "login": "atomist[bot]",
-          "person": null
+          "login": "cdupuis",
+          "person": {
+            "chatId": {
+              "chatTeam": {
+                "id": "T29E48P34"
+              },
+              "screenName": "cd"
+            },
+            "emails": [
+              {
+                "address": "cd@atomist.com"
+              }
+            ],
+            "forename": "Christian",
+            "gitHubId": {
+              "login": "cdupuis"
+            },
+            "name": "Christian Dupuis",
+            "surname": "Dupuis"
+          }
         },
         "head": {
           "author": {
-            "login": "atomist-bot",
-            "person": null
+            "login": "cdupuis",
+            "person": {
+              "chatId": {
+                "chatTeam": {
+                  "id": "T29E48P34"
+                },
+                "screenName": "cd"
+              },
+              "emails": [
+                {
+                  "address": "cd@atomist.com"
+                }
+              ],
+              "forename": "Christian",
+              "gitHubId": {
+                "login": "cdupuis"
+              },
+              "name": "Christian Dupuis",
+              "surname": "Dupuis"
+            }
           },
           "committer": {
-            "login": "atomist-bot",
-            "person": null
+            "login": "cdupuis",
+            "person": {
+              "chatId": {
+                "chatTeam": {
+                  "id": "T29E48P34"
+                },
+                "screenName": "cd"
+              },
+              "emails": [
+                {
+                  "address": "cd@atomist.com"
+                }
+              ],
+              "forename": "Christian",
+              "gitHubId": {
+                "login": "cdupuis"
+              },
+              "name": "Christian Dupuis",
+              "surname": "Dupuis"
+            }
           },
           "message": "npm update changes\n\n[atomist:generated]\n[atomist-skill:atomist/npm-audit-skill]",
           "sha": "9d882381e1d982f86376c4c101c62059f2dbe3a2"
@@ -486,12 +683,48 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
         },
         "base": {
           "author": {
-            "login": "atomist[bot]",
-            "person": null
+            "login": "cdupuis",
+            "person": {
+              "chatId": {
+                "chatTeam": {
+                  "id": "T29E48P34"
+                },
+                "screenName": "cd"
+              },
+              "emails": [
+                {
+                  "address": "cd@atomist.com"
+                }
+              ],
+              "forename": "Christian",
+              "gitHubId": {
+                "login": "cdupuis"
+              },
+              "name": "Christian Dupuis",
+              "surname": "Dupuis"
+            }
           },
           "committer": {
-            "login": "atomist[bot]",
-            "person": null
+            "login": "cdupuis",
+            "person": {
+              "chatId": {
+                "chatTeam": {
+                  "id": "T29E48P34"
+                },
+                "screenName": "cd"
+              },
+              "emails": [
+                {
+                  "address": "cd@atomist.com"
+                }
+              ],
+              "forename": "Christian",
+              "gitHubId": {
+                "login": "cdupuis"
+              },
+              "name": "Christian Dupuis",
+              "surname": "Dupuis"
+            }
           },
           "message": "Auto-merge pull request #27 from atomist-skills/github-auto-rebase-skill\n\nnpm update changes\n    \nPull request auto merged:\n\n* No reviews\n* 1 successful check",
           "sha": "795bc8b75b8961d3a8796e50312452b3a43e92ff"
@@ -509,23 +742,59 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "27a07060aec17074e4de9abd631ffdcc"
   }
 }
-````
+```
 
 ### GitHub > push
 
-````json
+```json
 {
   "data": {
     "Push": [
       {
         "after": {
           "author": {
-            "login": "atomist-bot",
-            "person": null
+            "login": "cdupuis",
+            "person": {
+              "chatId": {
+                "chatTeam": {
+                  "id": "T29E48P34"
+                },
+                "screenName": "cd"
+              },
+              "emails": [
+                {
+                  "address": "cd@atomist.com"
+                }
+              ],
+              "forename": "Christian",
+              "gitHubId": {
+                "login": "cdupuis"
+              },
+              "name": "Christian Dupuis",
+              "surname": "Dupuis"
+            }
           },
           "committer": {
-            "login": "atomist-bot",
-            "person": null
+            "login": "cdupuis",
+            "person": {
+              "chatId": {
+                "chatTeam": {
+                  "id": "T29E48P34"
+                },
+                "screenName": "cd"
+              },
+              "emails": [
+                {
+                  "address": "cd@atomist.com"
+                }
+              ],
+              "forename": "Christian",
+              "gitHubId": {
+                "login": "cdupuis"
+              },
+              "name": "Christian Dupuis",
+              "surname": "Dupuis"
+            }
           },
           "message": "npm license usage update\n\n[atomist:generated]\n[atomist-skill:atomist/npm-license-usage-skill]",
           "sha": "8f7a4470c94bef1f63f8b96f65a44161ab02b68f",
@@ -542,12 +811,48 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
         "commits": [
           {
             "author": {
-              "login": "atomist-bot",
-              "person": null
+              "login": "cdupuis",
+              "person": {
+                "chatId": {
+                  "chatTeam": {
+                    "id": "T29E48P34"
+                  },
+                  "screenName": "cd"
+                },
+                "emails": [
+                  {
+                    "address": "cd@atomist.com"
+                  }
+                ],
+                "forename": "Christian",
+                "gitHubId": {
+                  "login": "cdupuis"
+                },
+                "name": "Christian Dupuis",
+                "surname": "Dupuis"
+              }
             },
             "committer": {
-              "login": "atomist-bot",
-              "person": null
+              "login": "cdupuis",
+              "person": {
+                "chatId": {
+                  "chatTeam": {
+                    "id": "T29E48P34"
+                  },
+                  "screenName": "cd"
+                },
+                "emails": [
+                  {
+                    "address": "cd@atomist.com"
+                  }
+                ],
+                "forename": "Christian",
+                "gitHubId": {
+                  "login": "cdupuis"
+                },
+                "name": "Christian Dupuis",
+                "surname": "Dupuis"
+              }
             },
             "message": "npm license usage update\n\n[atomist:generated]\n[atomist-skill:atomist/npm-license-usage-skill]",
             "sha": "8f7a4470c94bef1f63f8b96f65a44161ab02b68f"
@@ -589,11 +894,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "018e4b54cc86348066d4d45cada74359"
   }
 }
-````
+```
 
 ### GitHub > release
 
-````json
+```json
 {
   "data": {
     "Release": [
@@ -647,11 +952,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "4d5909194b6f8a35509261b6ef39e47c"
   }
 }
-````
+```
 
 ### GitHub > pull request review
 
-````json
+```json
 {
   "data": {
     "Review": [
@@ -773,7 +1078,7 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
           "mergeStatus": null,
           "reviews": [
             {
-              "body": null,
+              "body": "LGTM",
               "by": [
                 {
                   "login": "cdupuis",
@@ -829,12 +1134,48 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
           },
           "base": {
             "author": {
-              "login": "atomist-bot",
-              "person": null
+              "login": "cdupuis",
+              "person": {
+                "chatId": {
+                  "chatTeam": {
+                    "id": "T29E48P34"
+                  },
+                  "screenName": "cd"
+                },
+                "emails": [
+                  {
+                    "address": "cd@atomist.com"
+                  }
+                ],
+                "forename": "Christian",
+                "gitHubId": {
+                  "login": "cdupuis"
+                },
+                "name": "Christian Dupuis",
+                "surname": "Dupuis"
+              }
             },
             "committer": {
-              "login": "atomist-bot",
-              "person": null
+              "login": "cdupuis",
+              "person": {
+                "chatId": {
+                  "chatTeam": {
+                    "id": "T29E48P34"
+                  },
+                  "screenName": "cd"
+                },
+                "emails": [
+                  {
+                    "address": "cd@atomist.com"
+                  }
+                ],
+                "forename": "Christian",
+                "gitHubId": {
+                  "login": "cdupuis"
+                },
+                "name": "Christian Dupuis",
+                "surname": "Dupuis"
+              }
             },
             "message": "Changelog: add release 2.1.7\n\n[atomist:generated]",
             "sha": "bcf74bf5ca8ca9864e8db3da09aeab642328953d"
@@ -877,11 +1218,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "6b552997ec4cd463ad86182654a82444"
   }
 }
-````
+```
 
 ### GitHub > commit status
 
-````json
+```json
 {
   "data": {
     "Status": [
@@ -941,11 +1282,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "6db01b660016a14623cf5dd82df43790"
   }
 }
-````
+```
 
 ### GitHub > tag
 
-````json
+```json
 {
   "data": {
     "Tag": [
@@ -993,11 +1334,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "73983b1b77629f28dfbfcda492fcfa80"
   }
 }
-````
+```
 
 ### Chat > channel linked
 
-````json
+```json
 {
   "data": {
     "ChannelLink": [
@@ -1045,11 +1386,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "905812316c562aa9d50c93fe8e55e9ea"
   }
 }
-````
+```
 
 ### Chat > new user
 
-````json
+```json
 {
   "data": {
     "ChatId": [
@@ -1085,11 +1426,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "a721d1b4c6ebfc053862d61ee69b455c"
   }
 }
-````
+```
 
 ### Chat > user joined channel
 
-````json
+```json
 {
   "data": {
     "UserJoinedChannel": [
@@ -1156,11 +1497,11 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     "request_id": "df291d7993486f260ff1fd9258570779"
   }
 }
-````
+```
 
 ## Project
 
-For some triggers (GitHub > push, GitHub > tag) the skill will clone the GitHub repository and checkout 
+For some triggers (GitHub > push, GitHub > tag) the skill will clone the GitHub repository and checkout
 the git reference of the triggering event. The repository will be cloned into `/atm/home`.
 If a Sha can get extracted from the event payload then the repository will be cloned in a detached head state.
 
@@ -1173,19 +1514,19 @@ skill execution unless the status [is overwritten](#setting-skill-status) by a `
 
 The following environment variables are available inside the container:
 
--   `ATOMIST_WORKSPACE_ID=AZQMH6PO7` - Id of the Atomist workspace
--   `ATOMIST_CORRELATION_ID=<random id generate for the skill invocation>` - Unique execution correlation id
--   `ATOMIST_PAYLOAD=/atm/payload.json` - Pointer to a file containing the triggering event payload
--   `ATOMIST_PUSH=/atm/output/push.json` - Pointer to a file containing push instructions to persist changes to cloned repos
--   `ATOMIST_STATUS=/atm/output/status.json` - Pointer to a file containing skill execution status
--   `ATOMIST_INPUT_DIR=/atm/input` - Directory that can contain additional input like provider secrets
--   `ATOMIST_OUTPUT_DIR=/atm/output` - Directory that can be used to store output
--   `ATOMIST_MATCHERS_DIR=/atm/output/matchers` - Directory containing problem matchers used to extract eg GitHub Checks
--   `ATOMIST_MESSAGES_DIR=/atm/output/messages` - Directory containing chat messages to send via the runtime
--   `ATOMIST_HOME=/atm/home` - Directory containing the cloned repository source files
--   `ATOMIST_TOPIC=<name of PubSub topic to write responses to>` - Name of PubSub topic to write responses to
--   `ATOMIST_STORAGE=<name of Storage bucket to write objects to>` - Name of Storage bucket to write objects to
--   `ATOMIST_GRAPHQL_ENDPOINT=<url for querying the GraphQL API>` - Url to the Atomist GraphQL endpoint
+- `ATOMIST_WORKSPACE_ID=AZQMH6PO7` - Id of the Atomist workspace
+- `ATOMIST_CORRELATION_ID=<random id generate for the skill invocation>` - Unique execution correlation id
+- `ATOMIST_PAYLOAD=/atm/payload.json` - Pointer to a file containing the triggering event payload
+- `ATOMIST_PUSH=/atm/output/push.json` - Pointer to a file containing push instructions to persist changes to cloned repos
+- `ATOMIST_STATUS=/atm/output/status.json` - Pointer to a file containing skill execution status
+- `ATOMIST_INPUT_DIR=/atm/input` - Directory that can contain additional input like provider secrets
+- `ATOMIST_OUTPUT_DIR=/atm/output` - Directory that can be used to store output
+- `ATOMIST_MATCHERS_DIR=/atm/output/matchers` - Directory containing problem matchers used to extract eg GitHub Checks
+- `ATOMIST_MESSAGES_DIR=/atm/output/messages` - Directory containing chat messages to send via the runtime
+- `ATOMIST_HOME=/atm/home` - Directory containing the cloned repository source files
+- `ATOMIST_TOPIC=<name of PubSub topic to write responses to>` - Name of PubSub topic to write responses to
+- `ATOMIST_STORAGE=<name of Storage bucket to write objects to>` - Name of Storage bucket to write objects to
+- `ATOMIST_GRAPHQL_ENDPOINT=<url for querying the GraphQL API>` - Url to the Atomist GraphQL endpoint
 
 ## Setting skill status
 
@@ -1195,12 +1536,12 @@ Writing a status messages into `$ATOMIST_STATUS` sets the status of the skill ex
 echo '{ "code": 0, "reason": "Skill failed with some strange error" }' > "$ATOMIST_STATUS"
 ```
 
-`code`, `reason` and `visibility` (setting visibility to `hidden` will hide the skill execution from the UI) 
+`code`, `reason` and `visibility` (setting visibility to `hidden` will hide the skill execution from the UI)
 are supported.
 
 ## Sending messages
 
-The skill runtime automatically processes messages and sends them to the configured chat integration when JSON 
+The skill runtime automatically processes messages and sends them to the configured chat integration when JSON
 documents are written into the `$ATOMIST_MESSAGES_DIR`.
 
 The following is the format of an acceptable Json document:
@@ -1244,29 +1585,29 @@ The structure of the Json document needs to follow this TypeScript interface:
 
 ```typescript
 export interface Matcher {
-    name: string;
-    severity?:
-        | "success"
-        | "failure"
-        | "neutral"
-        | "cancelled"
-        | "skipped"
-        | "timed_out"
-        | "action_required";
-    report?: "always" | "error";
-    pattern: [
-        {
-            regexp: string;
-            groups: {
-                path: number;
-                line: number;
-                column: number;
-                severity: number;
-                message: number;
-                title: number;
-            };
-        }
-    ];
+  name: string;
+  severity?:
+    | "success"
+    | "failure"
+    | "neutral"
+    | "cancelled"
+    | "skipped"
+    | "timed_out"
+    | "action_required";
+  report?: "always" | "error";
+  pattern: [
+    {
+      regexp: string;
+      groups: {
+        path: number;
+        line: number;
+        column: number;
+        severity: number;
+        message: number;
+        title: number;
+      };
+    }
+  ];
 }
 ```
 
@@ -1274,21 +1615,21 @@ Here is an example matcher Json from the markdownlint-skill:
 
 ```json
 {
-    "name": "markdownlint",
-    "severity": "action_required",
-    "report": "error",
-    "pattern": [
-        {
-            "regexp": "^([^:]*):(\\d+):?(\\d+)?\\s([\\w-\\/]*)\\s(.*)$",
-            "groups": {
-                "path": 1,
-                "line": 2,
-                "column": 3,
-                "title": 4,
-                "message": 5
-            }
-        }
-    ]
+  "name": "markdownlint",
+  "severity": "action_required",
+  "report": "error",
+  "pattern": [
+    {
+      "regexp": "^([^:]*):(\\d+):?(\\d+)?\\s([\\w-\\/]*)\\s(.*)$",
+      "groups": {
+        "path": 1,
+        "line": 2,
+        "column": 3,
+        "title": 4,
+        "message": 5
+      }
+    }
+  ]
 }
 ```
 
@@ -1299,27 +1640,27 @@ export a `matcher` const of type `JavaScriptMatcher`.
 
 ```typescript
 export interface Annotation {
-    path: string;
-    line: number;
-    column: number;
-    severity: "failure" | "notice" | "warning";
-    title: string;
-    message: string;
+  path: string;
+  line: number;
+  column: number;
+  severity: "failure" | "notice" | "warning";
+  title: string;
+  message: string;
 }
 
 export interface Check {
-    name: string;
-    summary?: string;
-    annotations?: Annotation[];
-    severity?:
-        | "success"
-        | "failure"
-        | "neutral"
-        | "cancelled"
-        | "skipped"
-        | "timed_out"
-        | "action_required";
-    report?: "error" | "always";
+  name: string;
+  summary?: string;
+  annotations?: Annotation[];
+  severity?:
+    | "success"
+    | "failure"
+    | "neutral"
+    | "cancelled"
+    | "skipped"
+    | "timed_out"
+    | "action_required";
+  report?: "error" | "always";
 }
 
 export type JavaScriptMatcher = (ctx: Contextual<any, any>) => Promise<Check>;
@@ -1331,43 +1672,43 @@ Here is an example matcher from the dockerfilelint-skill:
 
 ```js
 exports.matcher = async () => {
-    const result = require(`${process.env.ATOMIST_OUTPUT_DIR}/dockerfilelint.json`);
+  const result = require(`${process.env.ATOMIST_OUTPUT_DIR}/dockerfilelint.json`);
 
-    const check = {
-        name: "dockerfilelint",
-        report: "error",
-        summary: `dockerfilelint found ${result.totalIssues} ${
-            result.totalIssues === 1 ? "issue" : "issues"
-        }`,
-        severity: "action_required",
-        annotations: [],
-    };
+  const check = {
+    name: "dockerfilelint",
+    report: "error",
+    summary: `dockerfilelint found ${result.totalIssues} ${
+      result.totalIssues === 1 ? "issue" : "issues"
+    }`,
+    severity: "action_required",
+    annotations: [],
+  };
 
-    const mapSeverity = (category) => {
-        switch (category) {
-            case "Clarity":
-            case "Optimization":
-                return "notice";
-            case "Possible Bug":
-            default:
-                return "warning";
-        }
-    };
+  const mapSeverity = (category) => {
+    switch (category) {
+      case "Clarity":
+      case "Optimization":
+        return "notice";
+      case "Possible Bug":
+      default:
+        return "warning";
+    }
+  };
 
-    result.files.forEach((f) => {
-        f.issues.forEach((i) => {
-            check.annotations.push({
-                path: f.file,
-                message: i.description,
-                line: +i.line,
-                column: 1,
-                title: i.title,
-                severity: mapSeverity(i.category),
-            });
-        });
+  result.files.forEach((f) => {
+    f.issues.forEach((i) => {
+      check.annotations.push({
+        path: f.file,
+        message: i.description,
+        line: +i.line,
+        column: 1,
+        title: i.title,
+        severity: mapSeverity(i.category),
+      });
     });
+  });
 
-    return check;
+  return check;
 };
 ```
 
@@ -1386,26 +1727,26 @@ The file has to follow this structure:
 
 ```typescript
 interface PushConfiguration {
-    strategy:
-        | "pr_default_commit"
-        | "pr_default"
-        | "pr"
-        | "commit_default"
-        | "commit";
-    pullRequest: {
-        title: string; // title of PR
-        body: string; // body preamble of PR
-        labels?: string[]; // labels to be set on PR
-        branchPrefix?: string; // prefix for branches that should be created; if set PR branch will be ${branchPrefix}-${push.branch}
-        branch?: string; // alternative to branchPrefix setting an explicit branch name
-        close?: {
-            stale?: boolean; // close PRs open against same branches (base and head) when no local changes
-            message?: string; // optional message to use when closeing PRs
-        };
+  strategy:
+    | "pr_default_commit"
+    | "pr_default"
+    | "pr"
+    | "commit_default"
+    | "commit";
+  pullRequest: {
+    title: string; // title of PR
+    body: string; // body preamble of PR
+    labels?: string[]; // labels to be set on PR
+    branchPrefix?: string; // prefix for branches that should be created; if set PR branch will be ${branchPrefix}-${push.branch}
+    branch?: string; // alternative to branchPrefix setting an explicit branch name
+    close?: {
+      stale?: boolean; // close PRs open against same branches (base and head) when no local changes
+      message?: string; // optional message to use when closeing PRs
     };
-    commit: {
-        message: string; // commit message to use when committing changes to repository
-    };
+  };
+  commit: {
+    message: string; // commit message to use when committing changes to repository
+  };
 }
 ```
 
