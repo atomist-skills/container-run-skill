@@ -1773,6 +1773,11 @@ jq -n --arg s "$push_strategy" --argjson l "$labels" '{
 
 ## Caching
 
-## Expressions
+This skill will automatically cache and restore files that match the provided glob patterns in the _File cache_ 
+configuration parameter. The patterns will be resolved against the `/atm/home` directory. For each skill execution
+the cache is going to get restored if it was previously stored.
 
 ## Secrets
+
+Secrets that get configured and mapped to environment variable names will be available from within the container
+as environment variables. 
