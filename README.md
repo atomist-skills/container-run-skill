@@ -27,11 +27,16 @@ limits and quotas, [contact us](mailto:support@atomist.com).
 
 # How to configure
 
+1. **Select the trigger to run this skill**
+
+    You can select one or more triggers to start this skill. Refer to the [documentation](https://github.com/atomist-skills/container-run-skill/blob/master/docs/CONTRACT.md#trigger-payloads)
+    on the various event payloads available. 
+
 1. **Select the Docker image to run**
 
     ![Docker Image](docs/images/image.png)
 
-    This skill can run any public Docker image in response to a Git push.
+    This skill can run any public Docker image in response to a Git push or other triggers.
 
     Enter the complete Docker image name, eg. `ubuntu:latest` or `gcr.io/kaniko-project/executor:v0.19.0`.
 
