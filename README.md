@@ -30,7 +30,7 @@ limits and quotas, [contact us](mailto:support@atomist.com).
 1. **Select the trigger to run this skill**
 
     You can select one or more triggers to start this skill. Refer to the [documentation](https://github.com/atomist-skills/container-run-skill/blob/master/docs/CONTRACT.md#trigger-payloads)
-    on the various event payloads available. 
+    on the various event payloads available.
 
 1. **Select the Docker image to run**
 
