@@ -114,11 +114,11 @@ skill:
         displayName: Docker image
         description: "Docker image to run including optional tag (format image:tag)"
         placeHolder: alpine:3.11.3
-        required: true
+        required: false
     - string:
         name: docker_command
-        displayName: Command & arguments
-        description: Command to run inside the container
+        displayName: Entrypoint or command
+        description: Command to run inside the container including arguments, public http url to a script to download and run or slug to public repository with a script to run (format `owner/repo [file]`.
         lineStyle: multiple
         placeHolder: '/bin/sh -c "echo $(cd /atm/home && ls -la | wc -l)"'
         required: false
