@@ -1509,9 +1509,9 @@ The following table provides an overview of the possible entrypoint configuratio
 
 | Image | Command or Entrypoint | Description |
 |-------|-----------------------|-------------|
-| _alpine:latest_ | `/bin/sh -c 'echo $(cd /atm/home && ls -la | wc -l)'` | Runs the `/bin/sh` command inside a Alpine container |
-| <left empty> | https://gist.githubusercontent.com/cdupuis/e5a6ebbfadcc1c0d974a67f02ae2ba19/raw/5a460a229fe29ddd85ed87738f61f694742c9605/gistfile1.txt Germany | Downloads the referenced script and runs it in a Ubuntu-based container. Additional parameters are passed to the script; in this example `Germany`. |
-| <left empty> | example-org/deploy-script deploy.sh prod | Clones the public `example-org/deploy-script`, and runs the `deploy.sh` script passing the `prod` argument in a Ubuntu-based container. | 
+| `alpine:latest` | `/bin/sh -c 'echo $(cd /atm/home && ls -la)'` | Runs the `/bin/sh` command inside a Alpine container |
+| _left empty_ | `https://gist.github.com/.../gistfile1.txt Germany` | Downloads the referenced script and runs it in a Ubuntu-based container. Additional parameters are passed to the script; in this example `Germany`. |
+| _left empty_ | `example-org/deploy-script deploy.sh prod` | Clones the public `example-org/deploy-script`, and runs the `deploy.sh` script passing the `prod` argument in a Ubuntu-based container. | 
 
 ## Project
 

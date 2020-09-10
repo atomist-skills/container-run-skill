@@ -56,6 +56,8 @@ limits and quotas, [contact us](mailto:support@atomist.com).
     to run, or a repository slug in the format `owner/repository` to a public repository
     containing a `skill.sh` which will be used as entrypoint for the container.
     
+    Refer to the [documentation](https://github.com/atomist-skills/container-run-skill/blob/master/docs/CONTRACT.md#entrypoint) to learn more about possible image and entrypoint combinations.
+    
 1. **Provide optional environment variables**
 
     ![Docker Environment Variables](docs/images/env-vars.png)
