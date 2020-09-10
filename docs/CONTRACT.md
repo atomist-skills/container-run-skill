@@ -217,6 +217,70 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
 }
 ```
 
+### GitHub > commit status
+
+```json
+{
+    "data": {
+        "Status": [
+            {
+                "commit": {
+                    "message": "Version: increment after 2.1.2 release\n\n[atomist:generated]",
+                    "pushes": [
+                        {
+                            "branch": "master"
+                        }
+                    ],
+                    "repo": {
+                        "channels": [
+                            {
+                                "channelId": "CUCHNG75H",
+                                "name": "github-auto-rebase-skill",
+                                "team": {
+                                    "id": "T29E48P34"
+                                }
+                            }
+                        ],
+                        "defaultBranch": "master",
+                        "name": "github-auto-rebase-skill",
+                        "org": {
+                            "owner": "atomist-skills",
+                            "ownerType": "organization",
+                            "provider": {
+                                "apiUrl": "https://api.github.com/",
+                                "providerId": "624642c2-a2c4-4cfb-b1b7-8752739dcfb9",
+                                "providerType": "github_com",
+                                "url": "https://github.com/"
+                            }
+                        },
+                        "owner": "atomist-skills",
+                        "url": "https://github.com/atomist-skills/github-auto-rebase-skill"
+                    },
+                    "sha": "0a247d6bad2271c854e00fa469d5395a7f766859",
+                    "statuses": [
+                        {
+                            "context": "sdm/atomist/atomist-web-sdm",
+                            "description": "@atomist/atomist-web-sdm goals: all succeeded",
+                            "state": "success"
+                        }
+                    ]
+                },
+                "context": "sdm/atomist/atomist-web-sdm",
+                "description": "@atomist/atomist-web-sdm goals: all succeeded",
+                "state": "success",
+                "targetUrl": "https://app.atomist.com/workspace/T29E48P34/goalset/900d29a1-de97-455e-a304-32654aaf23d9"
+            }
+        ]
+    },
+    "extensions": {
+        "operationName": "onStatus",
+        "query_id": "c1c3ec3b-3d86-4425-9bbe-3fb6ec5c0907",
+        "correlation_id": "8a297725-4504-407b-b33e-5665990d9eee",
+        "request_id": "6db01b660016a14623cf5dd82df43790"
+    }
+}
+```
+
 ### GitHub > issue or pull request comment
 
 ```json
@@ -1220,70 +1284,6 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
 }
 ```
 
-### GitHub > commit status
-
-```json
-{
-    "data": {
-        "Status": [
-            {
-                "commit": {
-                    "message": "Version: increment after 2.1.2 release\n\n[atomist:generated]",
-                    "pushes": [
-                        {
-                            "branch": "master"
-                        }
-                    ],
-                    "repo": {
-                        "channels": [
-                            {
-                                "channelId": "CUCHNG75H",
-                                "name": "github-auto-rebase-skill",
-                                "team": {
-                                    "id": "T29E48P34"
-                                }
-                            }
-                        ],
-                        "defaultBranch": "master",
-                        "name": "github-auto-rebase-skill",
-                        "org": {
-                            "owner": "atomist-skills",
-                            "ownerType": "organization",
-                            "provider": {
-                                "apiUrl": "https://api.github.com/",
-                                "providerId": "624642c2-a2c4-4cfb-b1b7-8752739dcfb9",
-                                "providerType": "github_com",
-                                "url": "https://github.com/"
-                            }
-                        },
-                        "owner": "atomist-skills",
-                        "url": "https://github.com/atomist-skills/github-auto-rebase-skill"
-                    },
-                    "sha": "0a247d6bad2271c854e00fa469d5395a7f766859",
-                    "statuses": [
-                        {
-                            "context": "sdm/atomist/atomist-web-sdm",
-                            "description": "@atomist/atomist-web-sdm goals: all succeeded",
-                            "state": "success"
-                        }
-                    ]
-                },
-                "context": "sdm/atomist/atomist-web-sdm",
-                "description": "@atomist/atomist-web-sdm goals: all succeeded",
-                "state": "success",
-                "targetUrl": "https://app.atomist.com/workspace/T29E48P34/goalset/900d29a1-de97-455e-a304-32654aaf23d9"
-            }
-        ]
-    },
-    "extensions": {
-        "operationName": "onStatus",
-        "query_id": "c1c3ec3b-3d86-4425-9bbe-3fb6ec5c0907",
-        "correlation_id": "8a297725-4504-407b-b33e-5665990d9eee",
-        "request_id": "6db01b660016a14623cf5dd82df43790"
-    }
-}
-```
-
 ### GitHub > tag
 
 ```json
@@ -1499,38 +1499,29 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
 }
 ```
 
-## Entrypoint
+## Running commands
 
-This skill will either run the provided command inside the configured Docker image.
+There are several ways to use the container run skill to execute a
+command. The command run is determined by a combination of the Docker
+image and [entrypoint/command][docker-cmd] provided in the skill
+combination. The following table provides an overview of the possible
+image and entrypoint configurations.
 
-If no image is configured, this skill can execute downloadable shell scripts from public
-urls or GitHub repositories.
-
-The following table provides an overview of the possible entrypoint configurations:
-
-| Image           | Command or Entrypoint                               | Description                                                                                                                                         |
+| Image           | Entrypoint and command                              | Description                                                                                                                                         |
 | --------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `alpine:latest` | `/bin/sh -c 'echo $(cd /atm/home && ls -la)'`       | Runs the `/bin/sh` command inside a Alpine container                                                                                                |
+| `alpine:3.12.0` | `/bin/sh -c 'echo $(cd /atm/home && ls -la)'`       | Runs the `alpine:3.12.0` Docker image using `/bin/sh` as the entrypoint and `-c` & `echo $(cd /atm/home && ls -la)` as command arguments            |
+| `nginx`         | _left empty_                                        | Runs the latest `nginx` Docker image using the image provided entrypoint and command arguments                                                      |
 | _left empty_    | `https://gist.github.com/.../gistfile1.txt Germany` | Downloads the referenced script and runs it in a Ubuntu-based container. Additional parameters are passed to the script; in this example `Germany`. |
 | _left empty_    | `example-org/deploy-script deploy.sh prod`          | Clones the public `example-org/deploy-script`, and runs the `deploy.sh` script passing the `prod` argument in a Ubuntu-based container.             |
 
-## Project
-
-For some triggers (GitHub > push, GitHub > tag) the skill will clone the GitHub repository and checkout
-the git reference of the triggering event. The repository will be cloned into `/atm/home`.
-If a Sha can get extracted from the event payload then the repository will be cloned in a detached head state.
-
-## Exit Code
-
-A container skill that exits its first container with a non-zero exit code will always show as a failed
-skill execution unless the status [is overwritten](#setting-skill-status) by a `status.json`.
+[docker-cmd]: https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact
 
 ## Environment Variables
 
 The following environment variables are available inside the container:
 
 -   `ATOMIST_WORKSPACE_ID=AZQMH6PO7` - Id of the Atomist workspace
--   `ATOMIST_CORRELATION_ID=<random id generate for the skill invocation>` - Unique execution correlation id
+-   `ATOMIST_CORRELATION_ID=<UUID generate for the skill invocation>` - Unique execution correlation id
 -   `ATOMIST_PAYLOAD=/atm/payload.json` - Pointer to a file containing the triggering event payload
 -   `ATOMIST_PUSH=/atm/output/push.json` - Pointer to a file containing push instructions to persist changes to cloned repos
 -   `ATOMIST_STATUS=/atm/output/status.json` - Pointer to a file containing skill execution status
@@ -1543,7 +1534,33 @@ The following environment variables are available inside the container:
 -   `ATOMIST_STORAGE=<name of Storage bucket to write objects to>` - Name of Storage bucket to write objects to
 -   `ATOMIST_GRAPHQL_ENDPOINT=<url for querying the GraphQL API>` - Url to the Atomist GraphQL endpoint
 
-## Setting skill status
+## Project
+
+For some triggers, the skill will clone the GitHub repository and checkout
+the git reference of the triggering event. The repository will be cloned into `/atm/home`.
+If a SHA can be extracted from the event payload, the repository will be cloned in a detached head state.
+The following triggers provided a clone of the repository:
+
+-   GitHub > branch
+-   GitHub > commit check
+-   GitHub > commit status
+-   GitHub > pull request
+-   GitHub > push
+-   GitHub > release
+-   GitHub > tag
+
+## Skill status
+
+The result status of a skill can be set either by the exit code of the
+container or by creating a status file, with the latter taking
+precedence.
+
+### Exit code
+
+A container skill that exits its first container with a non-zero exit code will always show as a failed
+skill execution unless the status [is overwritten](#setting-skill-status) by a `status.json`.
+
+### Skill status file
 
 Writing a status messages into `$ATOMIST_STATUS` sets the status of the skill execution
 
@@ -1554,12 +1571,12 @@ echo '{ "code": 0, "reason": "Skill failed with some strange error" }' > "$ATOMI
 `code`, `reason` and `visibility` (setting visibility to `hidden` will hide the skill execution from the UI)
 are supported.
 
-## Sending messages
+## Chat messages
 
-The skill runtime automatically processes messages and sends them to the configured chat integration when JSON
+The skill runtime is able to process messages and send them to the configured chat integration when JSON
 documents are written into the `$ATOMIST_MESSAGES_DIR`.
 
-The following is the format of an acceptable Json document:
+The following is the format of an acceptable JSON document:
 
 ```json
 {
@@ -1593,10 +1610,10 @@ are only processed for sending once.
 
 ### Regular Expression matching
 
-A container skill can write a Json file to `$ATOMIST_MATCHER_DIR` containing match instructions on how to extract
+A container skill can write a JSON file to `$ATOMIST_MATCHER_DIR` containing match instructions on how to extract
 problems from log output.
 
-The structure of the Json document needs to follow this TypeScript interface:
+The structure of the JSON document needs to follow this TypeScript interface:
 
 ```typescript
 export interface Matcher {
@@ -1626,7 +1643,7 @@ export interface Matcher {
 }
 ```
 
-Here is an example matcher Json from the markdownlint-skill:
+Here is an example matcher JSON from the [markdownlint-skill][]:
 
 ```json
 {
@@ -1647,6 +1664,8 @@ Here is an example matcher Json from the markdownlint-skill:
     ]
 }
 ```
+
+[markdownlink-skill]: https://github.com/atomist-skills/markdownlint-skill
 
 ### JavaScript-based extraction
 
@@ -1683,7 +1702,7 @@ export type JavaScriptMatcher = (ctx: Contextual<any, any>) => Promise<Check>;
 
 `Contextual` provides access to a GraphQL, Message and Storage client. But let's ignore that for now.
 
-Here is an example matcher from the dockerfilelint-skill:
+Here is an example matcher from the [dockerfilelint-skill][]:
 
 ```js
 exports.matcher = async () => {
@@ -1733,10 +1752,13 @@ The matcher .js file should be written to the output locations as follows:
 cp /app/dockerfilelint.matcher.js "$ATOMIST_MATCHERS_DIR"
 ```
 
+[dockerfilelint-skill]: https://github.com/atomist-skills/dockerfilelint-skill
+
 ## Persisting changes to cloned repository
 
-Changes to the repository contents can be automatically pushed back. A container-skill can indicate the desire
-to push changes back by writing a Json file to `${ATOMIST_PUSH}`.
+Changes to the repository contents can be automatically committed and
+pushed to the remote. A container-skill can indicate the desire to
+push changes back by writing a JSON file to `$ATOMIST_PUSH`.
 
 The file has to follow this structure:
 
@@ -1765,7 +1787,7 @@ interface PushConfiguration {
 }
 ```
 
-Here's an example from the markdownlint-skill:
+Here's an example from the [markdownlint-skill][]:
 
 ```shell script
 jq -n --arg s "$push_strategy" --argjson l "$labels" '{
@@ -1789,8 +1811,8 @@ jq -n --arg s "$push_strategy" --argjson l "$labels" '{
 ## Caching
 
 This skill will automatically cache and restore files that match the provided glob patterns in the _File cache_
-configuration parameter. The patterns will be resolved against the `/atm/home` directory. For each skill execution
-the cache is going to get restored if it was previously stored.
+configuration parameter. The patterns will be resolved relative to the `/atm/home` directory. For each skill execution
+the cache will be restored if it was previously stored.
 
 ## Secrets
 

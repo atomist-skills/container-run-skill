@@ -117,8 +117,8 @@ skill:
         required: false
     - string:
         name: docker_command
-        displayName: Entrypoint or command
-        description: Command to run inside the container including arguments, public http url to a script to download and run or slug to public repository with a script to run (format `owner/repo [file]`.
+        displayName: Entrypoint and command
+        description: Command and arguments to run in container (format `ENTRYPOINT [ARG]…`), public http url and arguments to a script to download and run (format `URL [ARG]…`), or slug to public repository with a script to run (format `OWNER/REPO FILE [ARG]…`.
         lineStyle: multiple
         placeHolder: '/bin/sh -c "echo $(cd /atm/home && ls -la | wc -l)"'
         required: false
