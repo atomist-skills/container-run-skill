@@ -4,8 +4,8 @@ The following sections describe the contract between a container skill and the s
 
 ## Requirements
 
-The container skill can use any Docker image that can be pulled from a public Docker registry. There are no
-requirements for what is in the container.
+The container skill can use any Docker image that can be pulled from a public Docker registry.
+There are no requirements for what needs to be installed in the container.
 
 ## Trigger Payloads
 
@@ -1498,6 +1498,20 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     }
 }
 ```
+## Entrypoint
+
+This skill will either run the provided command inside the configured Docker image.
+
+If no image is configured, this skill can execute downloadable shell scripts from public
+urls or GitHub repositories.
+
+The following table provides an overview of the possible entrypoint configurations:
+
+| Image | Command or Entrypoint | Description |
+|-------|-----------------------|-------------|
+| _alpine:latest_ | `/bin/sh -c 'echo $(cd /atm/home && ls -la | wc -l)'` | Runs the `/bin/sh` command inside a Alpine container |
+| <left empty> | https://gist.githubusercontent.com/cdupuis/e5a6ebbfadcc1c0d974a67f02ae2ba19/raw/5a460a229fe29ddd85ed87738f61f694742c9605/gistfile1.txt Germany | Downloads the referenced script and runs it in a Ubuntu-based container. Additional parameters are passed to the script; in this example `Germany`. |
+| <left empty> | example-org/deploy-script deploy.sh prod | Clones the public `example-org/deploy-script`, and runs the `deploy.sh` script passing the `prod` argument in a Ubuntu-based container. | 
 
 ## Project
 

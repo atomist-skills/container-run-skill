@@ -40,17 +40,22 @@ limits and quotas, [contact us](mailto:support@atomist.com).
 
     Enter the complete Docker image name, eg. `ubuntu:latest` or `gcr.io/kaniko-project/executor:v0.19.0`.
 
-    Note: Support for running private Docker images is under development. Contact us if you would like to run your own
-    private images.
+    Note: Support for running private Docker images is under development. Contact
+    us if you would like to run your own private images.
 
-1. **Provide the command to run**
+1. **Provide entrypoint or command to run**
 
     ![Docker Command](docs/images/command.png)
 
-    Configure the command and arguments that you want to run inside the container. For example:
+    Configure the command and arguments that you want to run inside the container.
+    For example:
 
     `/bin/sh -c "echo $(cd /atm/home && ls -la | wc -l)"`
-
+    
+    Alternatively, you can provide a public HTTP url to a shell script that you want
+    to run, or a repository slug in the format `owner/repository` to a public repository
+    containing a `skill.sh` which will be used as entrypoint for the container.
+    
 1. **Provide optional environment variables**
 
     ![Docker Environment Variables](docs/images/env-vars.png)
