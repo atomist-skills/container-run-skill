@@ -1498,6 +1498,7 @@ The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` enviro
     }
 }
 ```
+
 ## Entrypoint
 
 This skill will either run the provided command inside the configured Docker image.
@@ -1507,11 +1508,11 @@ urls or GitHub repositories.
 
 The following table provides an overview of the possible entrypoint configurations:
 
-| Image | Command or Entrypoint | Description |
-|-------|-----------------------|-------------|
-| `alpine:latest` | `/bin/sh -c 'echo $(cd /atm/home && ls -la)'` | Runs the `/bin/sh` command inside a Alpine container |
-| _left empty_ | `https://gist.github.com/.../gistfile1.txt Germany` | Downloads the referenced script and runs it in a Ubuntu-based container. Additional parameters are passed to the script; in this example `Germany`. |
-| _left empty_ | `example-org/deploy-script deploy.sh prod` | Clones the public `example-org/deploy-script`, and runs the `deploy.sh` script passing the `prod` argument in a Ubuntu-based container. | 
+| Image           | Command or Entrypoint                               | Description                                                                                                                                         |
+| --------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `alpine:latest` | `/bin/sh -c 'echo $(cd /atm/home && ls -la)'`       | Runs the `/bin/sh` command inside a Alpine container                                                                                                |
+| _left empty_    | `https://gist.github.com/.../gistfile1.txt Germany` | Downloads the referenced script and runs it in a Ubuntu-based container. Additional parameters are passed to the script; in this example `Germany`. |
+| _left empty_    | `example-org/deploy-script deploy.sh prod`          | Clones the public `example-org/deploy-script`, and runs the `deploy.sh` script passing the `prod` argument in a Ubuntu-based container.             |
 
 ## Project
 
