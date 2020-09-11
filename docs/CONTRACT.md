@@ -1,34 +1,34 @@
 # Table of Contents
 
-- [Contract](#contract)
-  * [Requirements](#requirements)
-  * [Triggers](#triggers)
-  * [Running commands](#running-commands)
-  * [Environment Variables](#environment-variables)
-  * [Project](#project)
-  * [Skill status](#skill-status)
-    + [Exit code](#exit-code)
-    + [Skill status file](#skill-status-file)
-  * [Chat messages](#chat-messages)
-  * [Persisting changes to cloned repository](#persisting-changes-to-cloned-repository)
-  * [Caching](#caching)
-  * [Secrets](#secrets)
-  * [Appendix: Trigger Payloads](#appendix-trigger-payloads)
-    + [GitHub > branch](#github--branch)
-    + [GitHub > commit check](#github--commit-check)
-    + [GitHub > commit status](#github--commit-status)
-    + [GitHub > issue or pull request comment](#github--issue-or-pull-request-comment)
-    + [GitHub > deleted branch](#github--deleted-branch)
-    + [GitHub > issue](#github--issue)
-    + [GitHub > new repository](#github--new-repository)
-    + [GitHub > pull request](#github--pull-request)
-    + [GitHub > push](#github--push)
-    + [GitHub > release](#github--release)
-    + [GitHub > pull request review](#github--pull-request-review)
-    + [GitHub > tag](#github--tag)
-    + [Chat > channel linked](#chat--channel-linked)
-    + [Chat > new user](#chat--new-user)
-    + [Chat > user joined channel](#chat--user-joined-channel)✔
+-   [Contract](#contract)
+    -   [Requirements](#requirements)
+    -   [Triggers](#triggers)
+    -   [Running commands](#running-commands)
+    -   [Environment Variables](#environment-variables)
+    -   [Project](#project)
+    -   [Skill status](#skill-status)
+        -   [Exit code](#exit-code)
+        -   [Skill status file](#skill-status-file)
+    -   [Chat messages](#chat-messages)
+    -   [Persisting changes to cloned repository](#persisting-changes-to-cloned-repository)
+    -   [Caching](#caching)
+    -   [Secrets](#secrets)
+    -   [Appendix: Trigger Payloads](#appendix-trigger-payloads)
+        -   [GitHub > branch](#github--branch)
+        -   [GitHub > commit check](#github--commit-check)
+        -   [GitHub > commit status](#github--commit-status)
+        -   [GitHub > issue or pull request comment](#github--issue-or-pull-request-comment)
+        -   [GitHub > deleted branch](#github--deleted-branch)
+        -   [GitHub > issue](#github--issue)
+        -   [GitHub > new repository](#github--new-repository)
+        -   [GitHub > pull request](#github--pull-request)
+        -   [GitHub > push](#github--push)
+        -   [GitHub > release](#github--release)
+        -   [GitHub > pull request review](#github--pull-request-review)
+        -   [GitHub > tag](#github--tag)
+        -   [Chat > channel linked](#chat--channel-linked)
+        -   [Chat > new user](#chat--new-user)
+        -   [Chat > user joined channel](#chat--user-joined-channel)✔
 
 # Contract
 
@@ -43,25 +43,25 @@ There are no requirements for what needs to be installed in the container.
 
 The following skill triggers are available.
 
- * GitHub
-   * Branch
-   * Commit Check
-   * Commit Status
-   * Issue or Pull Request Comment
-   * Branch Deletions
-   * Issue
-   * Repository Creation
-   * Pull Request
-   * Push
-   * Release
-   * Pull Request Review
-   * Tag
- * Chat
-   * Channel Linked
-   * New Chat User
-   * User Joined Channel
+-   GitHub
+    -   Branch
+    -   Commit Check
+    -   Commit Status
+    -   Issue or Pull Request Comment
+    -   Branch Deletions
+    -   Issue
+    -   Repository Creation
+    -   Pull Request
+    -   Push
+    -   Release
+    -   Pull Request Review
+    -   Tag
+-   Chat
+    -   Channel Linked
+    -   New Chat User
+    -   User Joined Channel
 
-For information on the specific payloads refer to [Appendix: Trigger Payloads](#appendix-trigger-payloads)   
+For information on the specific payloads refer to [Appendix: Trigger Payloads](#appendix-trigger-payloads)
 
 The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` environment variable.
 
