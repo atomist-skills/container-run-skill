@@ -150,6 +150,7 @@ skill:
         description: Configure regular expressions to capture warnings and errors from log output
         lineStyle: multiple
         required: false
+        visibility: hidden
     - repoFilter:
         name: repos
         displayName: Which repositories
