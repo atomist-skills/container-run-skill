@@ -34,8 +34,6 @@ limits and quotas, [contact us](mailto:support@atomist.com).
 
 1. **Select the Docker image to run**
 
-    ![Docker Image](docs/images/image.png)
-
     This skill can run any public Docker image in response to a Git push or other triggers.
 
     Enter the complete Docker image name, eg. `ubuntu:latest` or `gcr.io/kaniko-project/executor:v0.19.0`.
@@ -43,9 +41,7 @@ limits and quotas, [contact us](mailto:support@atomist.com).
     Note: Support for running private Docker images is under development. Contact
     us if you would like to run your own private images.
 
-1. **Provide entrypoint or command to run**
-
-    ![Docker Command](docs/images/command.png)
+1. **Provide entrypoint and command to run**
 
     Configure the command and arguments that you want to run inside the container.
     For example:
@@ -56,7 +52,8 @@ limits and quotas, [contact us](mailto:support@atomist.com).
     to run, or a repository slug in the format `owner/repository` to a public repository
     containing a `skill.sh` which will be used as entrypoint for the container.
 
-    Refer to the [documentation](https://github.com/atomist-skills/container-run-skill/blob/master/docs/CONTRACT.md#entrypoint) to learn more about possible image and entrypoint combinations.
+    Refer to the [documentation](https://github.com/atomist-skills/container-run-skill/blob/main/docs/CONTRACT.md#running-commands) 
+    to learn more about the possible image and entrypoint combinations.
 
 1. **Provide optional environment variables**
 
