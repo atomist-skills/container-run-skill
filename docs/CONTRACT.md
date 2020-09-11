@@ -28,7 +28,7 @@
         -   [GitHub > tag](#github--tag)
         -   [Chat > channel linked](#chat--channel-linked)
         -   [Chat > new user](#chat--new-user)
-        -   [Chat > user joined channel](#chat--user-joined-channel)✔
+        -   [Chat > user joined channel](#chat--user-joined-channel)
 
 # Contract
 
