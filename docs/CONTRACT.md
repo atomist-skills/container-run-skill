@@ -167,10 +167,21 @@ The following is the format of an acceptable JSON document:
 }
 ```
 
-`body` should be an object representing a Slack message with attachments or blocks.
+`body` should be an object representing a Slack message with attachments or blocks. Refer to 
+the Slack documentation to learn more about acceptable messages.
 
 When writing files to `$ATOMIST_MESSAGES_DIR` it is important to not re-use file names as files
 are only processed for sending once.
+
+The following example shows a simple Slack message that gets send into the _#general_ channel of 
+your Chat integration:
+
+```json
+echo '{
+    "channels": ["general"],
+    "body": "Hello world!"
+}' > $ATOMIST_MESSAGES_DIR/hello.json
+```
 
 ## Persisting changes to cloned repository
 
