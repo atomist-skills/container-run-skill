@@ -6,8 +6,10 @@ Run Docker containers as reactions to Git pushes
 
 # What it's useful for
 
-Run any command in a Docker image, triggered by pushes to repositories. Run your favorite
-linter, code formatter, code scanner or any other task that you want to run in response to a push.
+Run any command in a Docker image, triggered by activity on your Git repositories or Chat providers. 
+For example, you can run your favorite linter, code formatter, code scanner in response to a push or
+send your new team members welcome messages when they join certain channels in Slack or Microsoft 
+Teams.
 
 # Before you get started
 

@@ -205,7 +205,7 @@ interface PushConfiguration {
 }
 ```
 
-Here's an example from the [markdownlint-skill][]:
+Here's an example from the [markdownlint-skill](https://github.com/atomist-skills/markdownlint-skill/blob/master/markdownlint.sh#L100-L115):
 
 ```shell script
 jq -n --arg s "$push_strategy" --argjson l "$labels" '{
@@ -236,6 +236,15 @@ the cache will be restored if it was previously stored.
 
 Secrets that get configured and mapped to environment variable names will be available from within the container
 as environment variables.
+
+1. Configure your secrets from the **Manage > Integrations** of your Atomist workspace.
+
+1. Once secrets are configured, you can add a mapping in the skill configuration
+
+    ![Secrets](images/secret.png)
+    
+   In this example, we've added the _Firebase token (prod)_ to our skill configuration. The token is
+   accessible from the `FIREBASE_TOKEN` environment variable.
 
 ## Appendix: Trigger Payloads
 
