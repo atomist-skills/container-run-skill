@@ -167,13 +167,13 @@ The following is the format of an acceptable JSON document:
 }
 ```
 
-`body` should be an object representing a Slack message with attachments or blocks. Refer to 
+`body` should be an object representing a Slack message with attachments or blocks. Refer to
 the Slack documentation to learn more about acceptable messages.
 
 When writing files to `$ATOMIST_MESSAGES_DIR` it is important to not re-use file names as files
 are only processed for sending once.
 
-The following example shows a simple Slack message that gets send into the _#general_ channel of 
+The following example shows a simple Slack message that gets send into the _#general_ channel of
 your Chat integration:
 
 ```json
@@ -253,9 +253,9 @@ as environment variables.
 1. Once secrets are configured, you can add a mapping in the skill configuration
 
     ![Secrets](images/secret.png)
-    
-   In this example, we've added the _Firebase token (prod)_ to our skill configuration. The token is
-   accessible from the `FIREBASE_TOKEN` environment variable.
+
+    In this example, we've added the _Firebase token (prod)_ to our skill configuration. The token is
+    accessible from the `FIREBASE_TOKEN` environment variable.
 
 ## Appendix: Trigger Payloads
 
