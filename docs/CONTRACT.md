@@ -175,7 +175,7 @@ are only processed for sending once.
 
 ### Example
 
-The following example shows a simple Slack message that gets send into the _#general_ channel of 
+The following example shows a simple Slack message that gets send into the _#general_ channel of
 your Chat integration:
 
 ```json
