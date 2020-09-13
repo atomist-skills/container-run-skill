@@ -173,7 +173,9 @@ the Slack documentation to learn more about acceptable messages.
 When writing files to `$ATOMIST_MESSAGES_DIR` it is important to not re-use file names as files
 are only processed for sending once.
 
-The following example shows a simple Slack message that gets send into the _#general_ channel of
+### Example
+
+The following example shows a simple Slack message that gets send into the _#general_ channel of 
 your Chat integration:
 
 ```json
@@ -247,6 +249,8 @@ the cache will be restored if it was previously stored.
 
 Secrets that get configured and mapped to environment variable names will be available from within the container
 as environment variables.
+
+### Example
 
 1. Configure your secrets from the **Manage > Integrations** of your Atomist workspace.
 
