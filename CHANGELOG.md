@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/container-run-skill/compare/2.1.8...HEAD)
 
+### Changed
+
+-   Remove some integrations and parameters. [1df4003](https://github.com/atomist-skills/container-run-skill/commit/1df4003af59df8d730b36af5de199f85043aaf98)
+
 ## [2.1.8](https://github.com/atomist-skills/container-run-skill/compare/2.1.7...2.1.8) - 2020-07-29
 
 ### Fixed
