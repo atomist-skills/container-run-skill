@@ -45,21 +45,10 @@ skill:
       typeName: GitHubAppResourceProvider
       minRequired: 1
       maxAllowed: 1
-    - name: slack
-      displayName: Chat
-      description: Chat
-      typeName: ChatProvider
-      minRequired: 0
-      maxAllowed: 1
     - name: docker
       displayName: Docker registeries
       description: Docker registries to pull images from
       typeName: DockerRegistry
-      minRequired: 0
-    - name: gcp
-      displayName: Google Cloud Platform
-      description: Select a Google Cloud Platform provider
-      typeName: GoogleCloudPlatformProvider
       minRequired: 0
     - name: secret
       displayName: Secrets
@@ -138,12 +127,14 @@ skill:
         displayName: File cache
         description: Glob patterns of files to cache. Caching is only available from within the `/atm/home` directory.
         required: false
+        visibility: hidden
     - boolean:
         name: docker_check
         displayName: Create GitHub check
         description: Automatically create a GitHub check on the commit triggering the container execution
         required: false
         defaultValue: true
+        visibility: hidden
     - string:
         name: docker_matchers
         displayName: Problem extraction
