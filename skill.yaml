@@ -97,8 +97,8 @@ skill:
             value: onNewUser
           - text: Chat > user joined channel
             value: onUserJoiningChannel
-#          - text: Webhook integration
-#            value: onWebhookEvent
+        #          - text: Webhook integration
+        #            value: onWebhookEvent
         required: true
     - string:
         name: subscription_event_name
