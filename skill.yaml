@@ -97,15 +97,15 @@ skill:
             value: onNewUser
           - text: Chat > user joined channel
             value: onUserJoiningChannel
-        #          - text: Webhook integration
-        #            value: onWebhookEvent
+          - text: Webhook integration
+            value: onWebhookEvent
         required: true
     - string:
         name: subscription_event_name
         displayName: Webhook event
         description: "When selecting the Webhook integration as trigger, enter the event name here"
         required: false
-        visibility: hidden
+        # visibility: hidden
     - string:
         name: docker_image
         displayName: Docker image
@@ -177,4 +177,4 @@ skill:
     - "@atomist/skill/github/onReview"
     - "@atomist/skill/github/onStatus"
     - "@atomist/skill/github/onTag"
-#    - "@atomist/skill/onWebhookEvent"
+    - "@atomist/skill/onWebhookEvent"
