@@ -103,6 +103,7 @@ skill:
         displayName: Raw webhook triggers
         description: Configure raw webhook event triggers
         minRequired: 0
+        required: false
     - string:
         name: docker_image
         displayName: Docker image
