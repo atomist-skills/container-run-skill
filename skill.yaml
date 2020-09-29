@@ -97,15 +97,12 @@ skill:
             value: onNewUser
           - text: Chat > user joined channel
             value: onUserJoiningChannel
-          - text: Webhook integration
-            value: onWebhookEvent
-        required: true
-    - string:
-        name: subscription_event_name
-        displayName: Webhook event
-        description: "When selecting the Webhook integration as trigger, enter the event name here"
         required: false
-        # visibility: hidden
+    - webhook:
+        name: event
+        displayName: Raw webhook triggers
+        description: Configure raw webhook event triggers
+        minRequired: 0
     - string:
         name: docker_image
         displayName: Docker image
@@ -122,7 +119,7 @@ skill:
     - stringArray:
         name: docker_env
         displayName: Environment variables
-        description: Environment variables to be passed to the container (format KEY=VALUE)
+        description: Environment variables to be set on the container (format KEY=VALUE)
         required: false
     - string:
         name: docker_working_dir
@@ -177,4 +174,3 @@ skill:
     - "@atomist/skill/github/onReview"
     - "@atomist/skill/github/onStatus"
     - "@atomist/skill/github/onTag"
-    - "@atomist/skill/onWebhookEvent"
