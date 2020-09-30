@@ -157,7 +157,7 @@ skill:
   artifacts:
     docker:
       - name: docker
-        image: ${configuration[0].parameters.docker_image}
+        image: ${configuration.parameters.docker_image}
 
   subscriptions:
     - "@atomist/skill/chat/onChannelLink"
