@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/container-run-skill/compare/2.1.9...HEAD)
 
+### Fixed
+
+-   Fix image placeholder. [63649aa](https://github.com/atomist-skills/container-run-skill/commit/63649aa721b84d783e9742d41e4c1881f04e8589)
+
 ## [2.1.9](https://github.com/atomist-skills/container-run-skill/compare/2.1.8...2.1.9) - 2020-09-30
 
 ### Changed
