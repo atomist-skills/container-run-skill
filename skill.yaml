@@ -98,6 +98,8 @@ skill:
           - text: Chat > user joined channel
             value: onUserJoiningChannel
         required: false
+        defaultValues:
+          - "none"
     - webhook:
         name: event
         displayName: Raw webhook triggers
@@ -122,25 +124,27 @@ skill:
         displayName: Environment variables
         description: Environment variables to be set on the container (format KEY=VALUE)
         required: false
+        visibility: advanced
     - string:
         name: docker_working_dir
         displayName: Container working directory
         description: Working directory for the container. The repository is being cloned into `/atm/home`.
         placeHolder: /atm/home
         required: false
+        visibility: advanced
     - stringArray:
         name: docker_cache
         displayName: File cache
         description: Glob patterns of files to cache. Caching is only available from within the `/atm/home` directory.
         required: false
-        visibility: hidden
+        visibility: advanced
     - boolean:
         name: docker_check
         displayName: Create GitHub check
         description: Automatically create a GitHub check on the commit triggering the container execution
         required: false
         defaultValue: true
-        visibility: hidden
+        visibility: advanced
     - string:
         name: docker_matchers
         displayName: Problem extraction
