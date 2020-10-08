@@ -1,12 +1,12 @@
-This page contains documentation on some more advanced capabilities of
-the Container Run Skill.
+This page contains documentation on some more advanced capabilities of the
+Container Run Skill.
 
 ## Extracting problems
 
 ### Regular Expression matching
 
-A container skill can write a JSON file to `$ATOMIST_MATCHER_DIR` containing match instructions on how to extract
-problems from log output.
+A container skill can write a JSON file to `$ATOMIST_MATCHER_DIR` containing
+match instructions on how to extract problems from log output.
 
 The structure of the JSON document needs to follow this TypeScript interface:
 
@@ -64,8 +64,9 @@ Here is an example matcher JSON from the [markdownlint-skill][]:
 
 ### JavaScript-based extraction
 
-Any JavaScript file written into `$ATOMIST_MATCHERS_DIR` will be dynamically loaded and executed. The script needs to
-export a `matcher` const of type `JavaScriptMatcher`.
+Any JavaScript file written into `$ATOMIST_MATCHERS_DIR` will be dynamically
+loaded and executed. The script needs to export a `matcher` const of type
+`JavaScriptMatcher`.
 
 ```typescript
 export interface Annotation {
@@ -95,7 +96,8 @@ export interface Check {
 export type JavaScriptMatcher = (ctx: Contextual<any, any>) => Promise<Check>;
 ```
 
-`Contextual` provides access to a GraphQL, Message and Storage client. But let's ignore that for now.
+`Contextual` provides access to a GraphQL, Message and Storage client. But let's
+ignore that for now.
 
 Here is an example matcher from the [dockerfilelint-skill][]:
 

@@ -32,12 +32,14 @@
 
 # Contract
 
-The following sections describe the contract between a container skill and the skill runtime.
+The following sections describe the contract between a container skill and the
+skill runtime.
 
 ## Requirements
 
-The container skill can use any Docker image that can be pulled from a public Docker registry.
-There are no requirements for what needs to be installed in the container.
+The container skill can use any Docker image that can be pulled from a public
+Docker registry. There are no requirements for what needs to be installed in the
+container.
 
 ## Triggers
 
@@ -61,17 +63,19 @@ The following skill triggers are available.
     -   New Chat User
     -   User Joined Channel
 
-For information on the specific payloads refer to [Appendix: Trigger Payloads](#appendix-trigger-payloads)
+For information on the specific payloads refer to
+[Appendix: Trigger Payloads](#appendix-trigger-payloads)
 
-The payload will be written to a file referenced in the `ATOMIST_PAYLOAD` environment variable.
+The payload will be written to a file referenced in the `ATOMIST_PAYLOAD`
+environment variable.
 
 ## Running commands
 
-There are several ways to use the container run skill to execute a
-command. The command run is determined by a combination of the Docker
-image and [entrypoint/command][docker-cmd] provided in the skill
-combination. The following table provides an overview of the possible
-image and entrypoint configurations.
+There are several ways to use the container run skill to execute a command. The
+command run is determined by a combination of the Docker image and
+[entrypoint/command][docker-cmd] provided in the skill combination. The
+following table provides an overview of the possible image and entrypoint
+configurations.
 
 | Image           | Entrypoint and command                              | Description                                                                                                                                         |
 | --------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -80,32 +84,46 @@ image and entrypoint configurations.
 | _left empty_    | `https://gist.github.com/.../gistfile1.txt Germany` | Downloads the referenced script and runs it in a Ubuntu-based container. Additional parameters are passed to the script; in this example `Germany`. |
 | _left empty_    | `example-org/deploy-script deploy.sh prod`          | Clones the public `example-org/deploy-script`, and runs the `deploy.sh` script passing the `prod` argument in a Ubuntu-based container.             |
 
-[docker-cmd]: https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact
+[docker-cmd]:
+    https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact
 
 ## Environment Variables
 
 The following environment variables are available inside the container:
 
 -   `ATOMIST_WORKSPACE_ID=AZQMH6PO7` - Id of the Atomist workspace
--   `ATOMIST_CORRELATION_ID=<UUID generate for the skill invocation>` - Unique execution correlation id
--   `ATOMIST_PAYLOAD=/atm/payload.json` - Pointer to a file containing the triggering event payload
--   `ATOMIST_PUSH=/atm/output/push.json` - Pointer to a file containing push instructions to persist changes to cloned repos
--   `ATOMIST_STATUS=/atm/output/status.json` - Pointer to a file containing skill execution status
--   `ATOMIST_INPUT_DIR=/atm/input` - Directory that can contain additional input like provider secrets
--   `ATOMIST_OUTPUT_DIR=/atm/output` - Directory that can be used to store output
--   `ATOMIST_MATCHERS_DIR=/atm/output/matchers` - Directory containing problem matchers used to extract eg GitHub Checks
--   `ATOMIST_MESSAGES_DIR=/atm/output/messages` - Directory containing chat messages to send via the runtime
--   `ATOMIST_HOME=/atm/home` - Directory containing the cloned repository source files
--   `ATOMIST_TOPIC=<name of PubSub topic to write responses to>` - Name of PubSub topic to write responses to
--   `ATOMIST_STORAGE=<name of Storage bucket to write objects to>` - Name of Storage bucket to write objects to
--   `ATOMIST_GRAPHQL_ENDPOINT=<url for querying the GraphQL API>` - Url to the Atomist GraphQL endpoint
+-   `ATOMIST_CORRELATION_ID=<UUID generate for the skill invocation>` - Unique
+    execution correlation id
+-   `ATOMIST_PAYLOAD=/atm/payload.json` - Pointer to a file containing the
+    triggering event payload
+-   `ATOMIST_PUSH=/atm/output/push.json` - Pointer to a file containing push
+    instructions to persist changes to cloned repos
+-   `ATOMIST_STATUS=/atm/output/status.json` - Pointer to a file containing
+    skill execution status
+-   `ATOMIST_INPUT_DIR=/atm/input` - Directory that can contain additional input
+    like provider secrets
+-   `ATOMIST_OUTPUT_DIR=/atm/output` - Directory that can be used to store
+    output
+-   `ATOMIST_MATCHERS_DIR=/atm/output/matchers` - Directory containing problem
+    matchers used to extract eg GitHub Checks
+-   `ATOMIST_MESSAGES_DIR=/atm/output/messages` - Directory containing chat
+    messages to send via the runtime
+-   `ATOMIST_HOME=/atm/home` - Directory containing the cloned repository source
+    files
+-   `ATOMIST_TOPIC=<name of PubSub topic to write responses to>` - Name of
+    PubSub topic to write responses to
+-   `ATOMIST_STORAGE=<name of Storage bucket to write objects to>` - Name of
+    Storage bucket to write objects to
+-   `ATOMIST_GRAPHQL_ENDPOINT=<url for querying the GraphQL API>` - Url to the
+    Atomist GraphQL endpoint
 
 ## Project
 
-For some triggers, the skill will clone the GitHub repository and checkout
-the git reference of the triggering event. The repository will be cloned into `/atm/home`.
-If a SHA can be extracted from the event payload, the repository will be cloned in a detached head state.
-The following triggers provided a clone of the repository:
+For some triggers, the skill will clone the GitHub repository and checkout the
+git reference of the triggering event. The repository will be cloned into
+`/atm/home`. If a SHA can be extracted from the event payload, the repository
+will be cloned in a detached head state. The following triggers provided a clone
+of the repository:
 
 -   GitHub > branch
 -   GitHub > commit check
@@ -117,30 +135,32 @@ The following triggers provided a clone of the repository:
 
 ## Skill status
 
-The result status of a skill can be set either by the exit code of the
-container or by creating a status file, with the latter taking
-precedence.
+The result status of a skill can be set either by the exit code of the container
+or by creating a status file, with the latter taking precedence.
 
 ### Exit code
 
-A container skill that exits its first container with a non-zero exit code will always show as a failed
-skill execution unless the status [is overwritten](#setting-skill-status) by a `status.json`.
+A container skill that exits its first container with a non-zero exit code will
+always show as a failed skill execution unless the status
+[is overwritten](#setting-skill-status) by a `status.json`.
 
 ### Skill status file
 
-Writing a status messages into `$ATOMIST_STATUS` sets the status of the skill execution
+Writing a status messages into `$ATOMIST_STATUS` sets the status of the skill
+execution
 
 ```shell script
 echo '{ "code": 0, "reason": "Skill failed with some strange error" }' > "$ATOMIST_STATUS"
 ```
 
-`code`, `reason` and `visibility` (setting visibility to `hidden` will hide the skill execution from the UI)
-are supported.
+`code`, `reason` and `visibility` (setting visibility to `hidden` will hide the
+skill execution from the UI) are supported.
 
 ## Chat messages
 
-The skill runtime is able to process messages and send them to the configured chat integration when JSON
-documents are written into the `$ATOMIST_MESSAGES_DIR`.
+The skill runtime is able to process messages and send them to the configured
+chat integration when JSON documents are written into the
+`$ATOMIST_MESSAGES_DIR`.
 
 The following is the format of an acceptable JSON document:
 
@@ -167,16 +187,17 @@ The following is the format of an acceptable JSON document:
 }
 ```
 
-`body` should be an object representing a Slack message with attachments or blocks. Refer to
-the Slack documentation to learn more about acceptable messages.
+`body` should be an object representing a Slack message with attachments or
+blocks. Refer to the Slack documentation to learn more about acceptable
+messages.
 
-When writing files to `$ATOMIST_MESSAGES_DIR` it is important to not re-use file names as files
-are only processed for sending once.
+When writing files to `$ATOMIST_MESSAGES_DIR` it is important to not re-use file
+names as files are only processed for sending once.
 
 ### Example
 
-The following example shows a simple Slack message that gets send into the _#general_ channel of
-your Chat integration:
+The following example shows a simple Slack message that gets send into the
+_#general_ channel of your Chat integration:
 
 ```json
 echo '{
@@ -187,9 +208,9 @@ echo '{
 
 ## Persisting changes to cloned repository
 
-Changes to the repository contents can be automatically committed and
-pushed to the remote. A container-skill can indicate the desire to
-push changes back by writing a JSON file to `$ATOMIST_PUSH`.
+Changes to the repository contents can be automatically committed and pushed to
+the remote. A container-skill can indicate the desire to push changes back by
+writing a JSON file to `$ATOMIST_PUSH`.
 
 The file has to follow this structure:
 
@@ -218,7 +239,8 @@ interface PushConfiguration {
 }
 ```
 
-Here's an example from the [markdownlint-skill](https://github.com/atomist-skills/markdownlint-skill/blob/master/markdownlint.sh#L100-L115):
+Here's an example from the
+[markdownlint-skill](https://github.com/atomist-skills/markdownlint-skill/blob/master/markdownlint.sh#L100-L115):
 
 ```shell script
 jq -n --arg s "$push_strategy" --argjson l "$labels" '{
@@ -241,25 +263,28 @@ jq -n --arg s "$push_strategy" --argjson l "$labels" '{
 
 ## Caching
 
-This skill will automatically cache and restore files that match the provided glob patterns in the _File cache_
-configuration parameter. The patterns will be resolved relative to the `/atm/home` directory. For each skill execution
-the cache will be restored if it was previously stored.
+This skill will automatically cache and restore files that match the provided
+glob patterns in the _File cache_ configuration parameter. The patterns will be
+resolved relative to the `/atm/home` directory. For each skill execution the
+cache will be restored if it was previously stored.
 
 ## Secrets
 
-Secrets that get configured and mapped to environment variable names will be available from within the container
-as environment variables.
+Secrets that get configured and mapped to environment variable names will be
+available from within the container as environment variables.
 
 ### Example
 
-1. Configure your secrets from the **Manage > Integrations** of your Atomist workspace.
+1. Configure your secrets from the **Manage > Integrations** of your Atomist
+   workspace.
 
 1. Once secrets are configured, you can add a mapping in the skill configuration
 
     ![Secrets](images/secret.png)
 
-    In this example, we've added the _Firebase token (prod)_ to our skill configuration. The token is
-    accessible from the `FIREBASE_TOKEN` environment variable.
+    In this example, we've added the _Firebase token (prod)_ to our skill
+    configuration. The token is accessible from the `FIREBASE_TOKEN` environment
+    variable.
 
 ## Appendix: Trigger Payloads
 
