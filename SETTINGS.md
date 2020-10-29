@@ -88,23 +88,9 @@ Connect and configure these integrations:
     environment variable. You _cannot_ use the same environment variable name as
     both a secret and regular environment variable.
 
-1.  **Determine repository scope**
+1.  **Cron schedule trigger** _(advanced)_
 
-    ![Repository filter](docs/images/repo-filter.png)
-
-    By default, this skill will be enabled for all repositories in all
-    organizations you have connected.
-
-    To restrict the organizations or specific repositories on which the skill
-    will run, you can explicitly choose organizations and repositories.
-
-The following configuration parameters are considered advanced and are not
-displayed by default on the configuration page. To view them, click the "Show
-advanced parameters" link.
-
-1.  **Cron schedule trigger**
-
-    <!-- ![Cron schedule trigger](docs/images/cron-schedule.png) -->
+    ![Cron schedule trigger](docs/images/cron-schedule.png)
 
     Rather than use one of the standard event triggers, you can schedule your
     container skill to run at regular intervals using a cron expression. A cron
@@ -114,7 +100,7 @@ advanced parameters" link.
     [Container Skills - Triggers](https://docs.atomist.com/authoring/container-skills/#triggers)
     for more detail on triggering container skill executions.
 
-1.  **Custom webhook trigger**
+1.  **Custom webhook trigger** _(advanced)_
 
     ![Custom webhook trigger](docs/images/custom-webhook.png)
 
@@ -126,7 +112,7 @@ advanced parameters" link.
     [Container Skills - Triggers](https://docs.atomist.com/authoring/container-skills/#triggers)
     for more detail on triggering container skill executions.
 
-1.  **Container working directory**
+1.  **Container working directory** _(advanced)_
 
     ![Container Working Directory](docs/images/working-dir.png)
 
@@ -139,7 +125,7 @@ advanced parameters" link.
     [Container Skills - Project](https://docs.atomist.com/authoring/container-skills/#project)
     for a list of events that provide the cloned repository in `/atm/home`.
 
-1.  **File caching**
+1.  **File caching** _(advanced)_
 
     ![File caching](docs/images/file-cache.png)
 
@@ -156,7 +142,7 @@ advanced parameters" link.
     additional parameter to the Maven command line:
     `mvn install -Dmaven.repo.local=/atm/home/.m2`
 
-1.  **Create GitHub commit check**
+1.  **Create GitHub commit check** _(advanced)_
 
     ![GitHub commit check](docs/images/commit-check.png)
 
@@ -164,6 +150,16 @@ advanced parameters" link.
     this skill will create a GitHub check on that commit indicating the success
     or failure of the skill execution. Uncheck this box to disable this
     behavior.
+
+1.  **Determine repository scope**
+
+    ![Repository filter](docs/images/repo-filter.png)
+
+    By default, this skill will be enabled for all repositories in all
+    organizations you have connected.
+
+    To restrict the organizations or specific repositories on which the skill
+    will run, you can explicitly choose organizations and repositories.
 
 1.  **Activate the skill**
 
