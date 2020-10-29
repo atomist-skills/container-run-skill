@@ -11,8 +11,8 @@ and the [Atomist documentation site][atomist-doc] for instructions on how to get
 started using Atomist Skills.
 
 [atomist-skill]:
-	https://go.atomist.com/catalog/skills/atomist/container-run-skill
-	"Atomist Skills Catalog - Automate All Your Software Tasks"
+    https://go.atomist.com/catalog/skills/atomist/container-run-skill
+    "Atomist Skills Catalog - Automate All Your Software Tasks"
 [atomist-doc]: https://docs.atomist.com/ "Atomist Documentation"
 
 ## Contributing
