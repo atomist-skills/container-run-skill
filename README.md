@@ -1,134 +1,82 @@
 # `atomist/container-run-skill`
 
-Run Docker containers as reactions to Git pushes
+Run Docker containers in response to activity in your Git repositories or chat
+team.
 
-<!---atomist-skill-readme:start--->
+:sparkles: [_**View this skill in the Atomist Skills Catalog**_][atomist-skill]
+to enable this skill on your repositories. :sparkles:
 
-# What it's useful for
+See the [Atomist website][atomist] for general information about Atomist Skills
+and the [Atomist documentation site][atomist-doc] for instructions on how to get
+started using Atomist Skills.
 
-Run any command in a Docker image, triggered by activity on your Git
-repositories or Chat providers. For example, you can run your favorite linter,
-code formatter, code scanner in response to a push or send your new team members
-welcome messages when they join certain channels in Slack or Microsoft Teams.
+[atomist-skill]:
+	https://go.atomist.com/catalog/skills/atomist/container-run-skill
+	"Atomist Skills Catalog - Automate All Your Software Tasks"
+[atomist-doc]: https://docs.atomist.com/ "Atomist Documentation"
 
-# Before you get started
+## Contributing
 
-Connect and configure this integration:
+Contributions to this project from community members are encouraged and
+appreciated. Please review the [Contributing Guidelines](CONTRIBUTING.md) for
+more information. Also see the [Development](#development) section in this
+document.
 
--   **GitHub**
--   **Docker Registry**
--   **Slack or Microsoft Teams**
--   **Google Cloud Platform**
--   **Maven Repository**
+## Code of conduct
 
-The **GitHub** integration must be configured in order to use this skill. At
-least one repository must be selected. The other integrations are optional and
-only needed if you plan to use any of these integrations from your container.
+This project is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). You are
+expected to act in accordance with this code by participating. Please report any
+unacceptable behavior to code-of-conduct@atomist.com.
 
-This skill imposes restrictions on the running Docker containers. If you would
-like to know more about resource limits and quotas,
-[contact us](mailto:support@atomist.com).
+## Connect
 
-# How to configure
+Follow [@atomist][atomist-twitter] on Twitter and [The Atomist
+Blog][atomist-blog].
 
-1. **Select the trigger to run this skill**
+[atomist-twitter]: https://twitter.com/atomist "Atomist on Twitter"
+[atomist-blog]: https://blog.atomist.com/ "The Atomist Blog"
 
-    You can select one or more triggers to start this skill. Refer to the
-    [documentation](https://github.com/atomist-skills/container-run-skill/blob/master/docs/CONTRACT.md#trigger-payloads)
-    on the various event payloads available.
+## Support
 
-1. **Select the Docker image to run**
+General support questions should be discussed in the `#support` channel in the
+[Atomist community Slack workspace][slack].
 
-    This skill can run any public Docker image in response to a Git push or
-    other triggers.
+If you find a problem, please create an [issue](../../issues).
 
-    Enter the complete Docker image name, eg. `ubuntu:latest` or
-    `gcr.io/kaniko-project/executor:v0.19.0`.
+## Development
 
-    Note: Support for running private Docker images is under development.
-    Contact us if you would like to run your own private images.
+You will need to install [Node.js][node] to build and test this project.
 
-1. **Provide entrypoint and command to run**
+[node]: https://nodejs.org/ "Node.js"
 
-    Configure the command and arguments that you want to run inside the
-    container. For example:
+### Build and test
 
-    `/bin/sh -c "echo $(cd /atm/home && ls -la | wc -l)"`
+Install dependencies.
 
-    Alternatively, you can provide a public HTTP url to a shell script that you
-    want to run, or a repository slug in the format `owner/repository` to a
-    public repository containing a `skill.sh` which will be used as entrypoint
-    for the container.
+```
+$ npm ci
+```
 
-    Refer to the
-    [documentation](https://github.com/atomist-skills/container-run-skill/blob/main/docs/CONTRACT.md#running-commands)
-    to learn more about the possible image and entrypoint combinations.
+Use the `build` package script to compile, test, lint, and build the
+documentation.
 
-1. **Provide optional environment variables**
+```
+$ npm run build
+```
 
-    ![Docker Environment Variables](docs/images/env-vars.png)
+### Release
 
-    Specify any environment variables needed for your image and commands to run.
-    The environment variable format is `KEY=VALUE`. For example:
+Releases are created by pushing a release [semantic version][semver] tag to the
+repository, Atomist Skills take care of the rest.
 
-    `GIT_URL=https://github.com`
+To make this skill globally available, set its maturity to "stable" via the set
+maturity drop-down in its Atomist Community Slack channel.
 
-1. **Overwrite the working directory**
-
-    ![Docker Working Directory](docs/images/working-dir.png)
-
-    By default this skill doesn't change the working directory of the container.
-    Use this setting to provide an explicit working directory for your
-    container.
-
-    The working directory `/atm/home` contains the cloned sources of the
-    repository you pushed to.
-
-1. **Enable file caching for faster execution times**
-
-    You can speed up executions times by enabling file caching for certain
-    artifacts — for example, dependencies — by providing glob patterns of files
-    you'd like to cache between executions.
-
-    Note that only files within the `/atm/home` directory can be cached.
-
-    Caching Maven dependencies from a local repository could be accomplished
-    with the following pattern:
-
-    `.m2/**`
-
-    To instruct Maven to download dependencies into the `/atm/home/.m2`
-    directory, provide an additional parameter to the Maven command line:
-    `mvn install -Dmaven.repo.local=/atm/home/.m2`
-
-1. **Determine repository scope**
-
-    ![Repository filter](docs/images/repo-filter.png)
-
-    By default, this skill will be enabled for all repositories in all
-    organizations you have connected.
-
-    To restrict the organizations or specific repositories on which the skill
-    will run, you can explicitly choose organization(s) and repositories.
-
-# How to use the Container Run Skill
-
-1. **[Review the Docker container contract and available triggers](https://github.com/atomist-skills/container-run-skill/blob/master/docs/CONTRACT.md)**
-
-1. **Configure the skill, set Docker image, command and environment variables**
-
-1. **Every time you push to a repository, the Docker container will run**
-
-To create feature requests or bug reports, create an
-[issue in the repository for this skill](https://github.com/atomist-skills/container-run-skill/issues).
-See the [code](https://github.com/atomist-skills/container-run-skill) for the
-skill.
-
-<!---atomist-skill-readme:end--->
+[semver]: https://semver.org/ "Semantic Version"
 
 ---
 
 Created by [Atomist][atomist]. Need Help? [Join our Slack workspace][slack].
 
-[atomist]: https://atomist.com/ "Atomist - How Teams Deliver Software"
+[atomist]: https://atomist.com/ "Atomist - Automate All the Software Things"
 [slack]: https://join.atomist.com/ "Atomist Community Slack"
