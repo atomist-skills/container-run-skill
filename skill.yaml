@@ -20,21 +20,9 @@ skill:
   namespace: atomist
   displayName: Docker Container Runner
   author: Atomist
-  description: Run Docker containers on pushes to your Git repositories
-  documentation: |
-    Use this generic Docker container runner skill to run any
-    tool or Docker image as a reaction to pushes to Git repositories.
-    You can run linters, scanners or any other public Docker image.
-
-    Review the README to learn more the container runtime environment.
-
-    This Skill imposes restrictions on the running Docker containers.
-    If you want to learn more about resource limits and ways to increase
-    applied quotas, [feel free to contact us](mailto:support@atomist.com).
+  description: Run Docker containers in response to activity in your Git repositories or chat team
   categories:
     - DEVOPS
-  technologies:
-    - DOCKER
   license: Apache-2.0
   iconUrl: data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDUiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCA0NSAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQ0LjU2MTcgMTIuMjA5NEM0NC40MzY1IDEyLjEwNSA0My4zMDk1IDExLjI0OTMgNDAuODg4NSAxMS4yNDkzQzQwLjI2MjMgMTEuMjQ5MyAzOS42MTU0IDExLjMxMTkgMzguOTg5MiAxMS40MTYzQzM4LjUzMDEgOC4yMjMwNyAzNS44Nzk1IDYuNjc4NjQgMzUuNzc1MSA2LjU5NTE1TDM1LjEyODEgNi4yMTk0OEwzNC43MTA3IDYuODI0NzNDMzQuMTg5IDcuNjM4NjkgMzMuNzkyNCA4LjU1NyAzMy41NjI4IDkuNDk2MThDMzMuMTI0NiAxMS4zMTE5IDMzLjM5NTkgMTMuMDIzMyAzNC4zMTQyIDE0LjQ4NDNDMzMuMjA4IDE1LjExMDQgMzEuNDEzMiAxNS4yNTY1IDMxLjAzNzUgMTUuMjc3NEgxLjQwMTA2QzAuNjI4ODQ2IDE1LjI3NzQgMC4wMDI3MjM5OSAxNS45MDM1IDAuMDAyNzIzOTkgMTYuNjc1N0MtMC4wMzkwMTc1IDE5LjI2MzcgMC4zOTkyNjggMjEuODUxNiAxLjI5NjcxIDI0LjI5MzVDMi4zMTkzNyAyNi45NjUgMy44NDI5NCAyOC45NDc3IDUuODA0NzggMzAuMTU4MkM4LjAxNzA4IDMxLjUxNDggMTEuNjI3NyAzMi4yODcgMTUuNjk3NSAzMi4yODdDMTcuNTM0MSAzMi4yODcgMTkuMzcwOCAzMi4xMiAyMS4xODY1IDMxLjc4NjFDMjMuNzExOSAzMS4zMjcgMjYuMTMyOSAzMC40NTA0IDI4LjM2NiAyOS4xNzczQzMwLjIwMjcgMjguMTEyOSAzMS44NTE0IDI2Ljc1NjMgMzMuMjQ5OCAyNS4xNzAxQzM1LjYwODIgMjIuNTE5NSAzNy4wMDY1IDE5LjU1NTkgMzguMDI5MiAxNi45MjYyQzM4LjE3NTMgMTYuOTI2MiAzOC4zMDA1IDE2LjkyNjIgMzguNDQ2NiAxNi45MjYyQzQxLjAxMzcgMTYuOTI2MiA0Mi41OTk5IDE1LjkwMzUgNDMuNDc2NCAxNS4wMjY5QzQ0LjA2MDggMTQuNDg0MyA0NC40OTkxIDEzLjgxNjQgNDQuODEyMiAxMy4wNjUxTDQ1IDEyLjUyMjRMNDQuNTYxNyAxMi4yMDk0WiIgZmlsbD0iIzAwOTFFMiIvPgo8cGF0aCBkPSJNNC4xNTU1OCAxNC40MjE3SDguMTIxMDJDOC4zMDg4NiAxNC40MjE3IDguNDc1ODIgMTQuMjc1NiA4LjQ3NTgyIDE0LjA2NjlWMTAuNTE4OUM4LjQ3NTgyIDEwLjMzMSA4LjMyOTczIDEwLjE2NDEgOC4xMjEwMiAxMC4xNjQxSDQuMTU1NThDMy45Njc3NSAxMC4xNjQxIDMuODAwNzggMTAuMzEwMiAzLjgwMDc4IDEwLjUxODlWMTQuMDY2OUMzLjgyMTY1IDE0LjI3NTYgMy45Njc3NSAxNC40MjE3IDQuMTU1NTggMTQuNDIxN1oiIGZpbGw9IiMwMDkxRTIiLz4KPHBhdGggZD0iTTkuNjI0MzMgMTQuNDIxN0gxMy41ODk4QzEzLjc3NzYgMTQuNDIxNyAxMy45NDQ2IDE0LjI3NTYgMTMuOTQ0NiAxNC4wNjY5VjEwLjUxODlDMTMuOTQ0NiAxMC4zMzEgMTMuNzk4NSAxMC4xNjQxIDEzLjU4OTggMTAuMTY0MUg5LjYyNDMzQzkuNDM2NSAxMC4xNjQxIDkuMjY5NTMgMTAuMzEwMiA5LjI2OTUzIDEwLjUxODlWMTQuMDY2OUM5LjI5MDQgMTQuMjc1NiA5LjQzNjUgMTQuNDIxNyA5LjYyNDMzIDE0LjQyMTdaIiBmaWxsPSIjMDA5MUUyIi8+CjxwYXRoIGQ9Ik0xNS4xOTY2IDE0LjQyMTdIMTkuMTYyQzE5LjM0OTkgMTQuNDIxNyAxOS41MTY4IDE0LjI3NTYgMTkuNTE2OCAxNC4wNjY5VjEwLjUxODlDMTkuNTE2OCAxMC4zMzEgMTkuMzcwNyAxMC4xNjQxIDE5LjE2MiAxMC4xNjQxSDE1LjE5NjZDMTUuMDA4OCAxMC4xNjQxIDE0Ljg0MTggMTAuMzEwMiAxNC44NDE4IDEwLjUxODlWMTQuMDY2OUMxNC44NDE4IDE0LjI3NTYgMTQuOTg3OSAxNC40MjE3IDE1LjE5NjYgMTQuNDIxN1oiIGZpbGw9IiMwMDkxRTIiLz4KPHBhdGggZD0iTTIwLjY4NTkgMTQuNDIxN0gyNC42NTEzQzI0LjgzOTEgMTQuNDIxNyAyNS4wMDYxIDE0LjI3NTYgMjUuMDA2MSAxNC4wNjY5VjEwLjUxODlDMjUuMDA2MSAxMC4zMzEgMjQuODYgMTAuMTY0MSAyNC42NTEzIDEwLjE2NDFIMjAuNjg1OUMyMC40OTggMTAuMTY0MSAyMC4zMzExIDEwLjMxMDIgMjAuMzMxMSAxMC41MTg5VjE0LjA2NjlDMjAuMzMxMSAxNC4yNzU2IDIwLjQ5OCAxNC40MjE3IDIwLjY4NTkgMTQuNDIxN1oiIGZpbGw9IiMwMDkxRTIiLz4KPHBhdGggZD0iTTkuNjI0MzMgOS4zNTAwNEgxMy41ODk4QzEzLjc3NzYgOS4zNTAwNCAxMy45NDQ2IDkuMTgzMDcgMTMuOTQ0NiA4Ljk5NTIzVjUuNDQ3MjFDMTMuOTQ0NiA1LjI1OTM4IDEzLjc5ODUgNS4wOTI0MSAxMy41ODk4IDUuMDkyNDFIOS42MjQzM0M5LjQzNjUgNS4wOTI0MSA5LjI2OTUzIDUuMjM4NSA5LjI2OTUzIDUuNDQ3MjFWOC45OTUyM0M5LjI5MDQgOS4xODMwNyA5LjQzNjUgOS4zNTAwNCA5LjYyNDMzIDkuMzUwMDRaIiBmaWxsPSIjMDA5MUUyIi8+CjxwYXRoIGQ9Ik0xNS4xOTY2IDkuMzUwMDRIMTkuMTYyQzE5LjM0OTkgOS4zNTAwNCAxOS41MTY4IDkuMTgzMDcgMTkuNTE2OCA4Ljk5NTIzVjUuNDQ3MjFDMTkuNTE2OCA1LjI1OTM4IDE5LjM3MDcgNS4wOTI0MSAxOS4xNjIgNS4wOTI0MUgxNS4xOTY2QzE1LjAwODggNS4wOTI0MSAxNC44NDE4IDUuMjM4NSAxNC44NDE4IDUuNDQ3MjFWOC45OTUyM0MxNC44NDE4IDkuMTgzMDcgMTQuOTg3OSA5LjM1MDA0IDE1LjE5NjYgOS4zNTAwNFoiIGZpbGw9IiMwMDkxRTIiLz4KPHBhdGggZD0iTTIwLjY4NTkgOS4zNTAwNEgyNC42NTEzQzI0LjgzOTEgOS4zNTAwNCAyNS4wMDYxIDkuMTgzMDcgMjUuMDA2MSA4Ljk5NTIzVjUuNDQ3MjFDMjUuMDA2MSA1LjI1OTM4IDI0LjgzOTEgNS4wOTI0MSAyNC42NTEzIDUuMDkyNDFIMjAuNjg1OUMyMC40OTggNS4wOTI0MSAyMC4zMzExIDUuMjM4NSAyMC4zMzExIDUuNDQ3MjFWOC45OTUyM0MyMC4zMzExIDkuMTgzMDcgMjAuNDk4IDkuMzUwMDQgMjAuNjg1OSA5LjM1MDA0WiIgZmlsbD0iIzAwOTFFMiIvPgo8cGF0aCBkPSJNMjAuNjg1OSA0LjI1NzYzSDI0LjY1MTNDMjQuODM5MSA0LjI1NzYzIDI1LjAwNjEgNC4xMTE1MyAyNS4wMDYxIDMuOTAyODNWMC4zNTQ4MDVDMjUuMDA2MSAwLjE2Njk2OCAyNC44MzkxIDAgMjQuNjUxMyAwSDIwLjY4NTlDMjAuNDk4IDAgMjAuMzMxMSAwLjE0NjA5OCAyMC4zMzExIDAuMzU0ODA1VjMuOTAyODNDMjAuMzMxMSA0LjA5MDY2IDIwLjQ5OCA0LjI1NzYzIDIwLjY4NTkgNC4yNTc2M1oiIGZpbGw9IiMwMDkxRTIiLz4KPHBhdGggZD0iTTI2LjIxNjEgMTQuNDIxN0gzMC4xODE2QzMwLjM2OTQgMTQuNDIxNyAzMC41MzY0IDE0LjI3NTYgMzAuNTM2NCAxNC4wNjY5VjEwLjUxODlDMzAuNTM2NCAxMC4zMzEgMzAuMzkwMyAxMC4xNjQxIDMwLjE4MTYgMTAuMTY0MUgyNi4yMTYxQzI2LjAyODMgMTAuMTY0MSAyNS44NjEzIDEwLjMxMDIgMjUuODYxMyAxMC41MTg5VjE0LjA2NjlDMjUuODgyMiAxNC4yNzU2IDI2LjAyODMgMTQuNDIxNyAyNi4yMTYxIDE0LjQyMTdaIiBmaWxsPSIjMDA5MUUyIi8+Cjwvc3ZnPg==
 
@@ -57,15 +45,10 @@ skill:
       minRequired: 0
 
   parameters:
-    - string:
-        name: env_map
-        displayName: ""
-        description: ""
-        required: false
     - multiChoice:
         name: subscription_filter
-        displayName: Triggers
-        description: "Select one or more trigger events to run the container"
+        displayName: Standard event triggers
+        description: Select one or more events to trigger execution of the container skill. See [Container Skills - Triggers](https://docs.atomist.com/authoring/container-skills/#triggers) for more detail.
         options:
           - text: GitHub > branch
             value: onBranch
@@ -100,35 +83,52 @@ skill:
         required: false
         defaultValues:
           - "none"
-    - webhook:
-        name: event
-        displayName: Raw webhook triggers
-        description: Configure raw webhook event triggers
-        minRequired: 0
-        required: false
     - string:
         name: docker_image
         displayName: Docker image
-        description: "Docker image to run including optional tag (format image:tag)"
+        description: Docker image to run including optional tag (format `image:tag`)
         placeHolder: alpine:3.11.3
         required: false
     - string:
         name: docker_command
         displayName: Entrypoint and command
-        description: Command and arguments to run in container (format `ENTRYPOINT [ARG]…`), public http url and arguments to a script to download and run (format `URL [ARG]…`), or slug to public repository with a script to run (format `OWNER/REPO FILE [ARG]…`.
+        description: Command and arguments to run in container (format `ENTRYPOINT [ARG]…`), public HTTP(S) URL and arguments to a script to download and run (format `URL [ARG]…`), or slug to public GitHub repository and path to a script in that repository to run (format `OWNER/REPO FILE [ARG]…`). See [Container Skills - Running Commands](https://docs.atomist.com/authoring/container-skills/#running-commands) for more detail.
         lineStyle: multiple
-        placeHolder: '/bin/sh -c "echo $(cd /atm/home && ls -la | wc -l)"'
+        placeHolder: '/bin/sh -c "cd /atm/home && ls -la | wc"'
         required: false
     - stringArray:
         name: docker_env
         displayName: Environment variables
-        description: Environment variables to be set on the container (format KEY=VALUE)
+        description: Environment variables to be set on the container (format `KEY=VALUE`)
+        required: false
+    - string:
+        name: env_map
+        displayName: ""
+        description: ""
+        required: false
+    - repoFilter:
+        name: repos
+        displayName: Which repositories
+        description: ""
+        required: false
+    - schedule:
+        name: schedule
+        displayName: Schedule trigger
+        description: Cron expression for scheduled skill executions. A cron expression is of the format `MINUTE HOUR DATE MONTH DAY`. See [CRON Expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) for more detail.
+        placeHolder: 0 9,12,17 */2 * 1-5
+        required: false
+        visibility: advanced
+    - webhook:
+        name: event
+        displayName: Custom webhook triggers
+        description: Enter a unique name and a when the skill is enabled, you will be provided with a URL. When that URL receives a `POST`, this skill will be executed with the data in the `POST` as the payload for the skill. See [Container Skills - Triggers](https://docs.atomist.com/authoring/container-skills/#triggers) for more detail.
+        minRequired: 0
         required: false
         visibility: advanced
     - string:
         name: docker_working_dir
         displayName: Container working directory
-        description: Working directory for the container. The repository is being cloned into `/atm/home`.
+        description: Working directory for the container. If not provided, it defaults to the working directory of the Docker image. If the skill execution is triggered by repository activity, the repository is cloned into `/atm/home`.
         placeHolder: /atm/home
         required: false
         visibility: advanced
@@ -152,11 +152,6 @@ skill:
         lineStyle: multiple
         required: false
         visibility: hidden
-    - repoFilter:
-        name: repos
-        displayName: Which repositories
-        description: ""
-        required: false
 
   artifacts:
     docker:
@@ -179,3 +174,4 @@ skill:
     - "@atomist/skill/github/onReview"
     - "@atomist/skill/github/onStatus"
     - "@atomist/skill/github/onTag"
+    - "@atomist/skill/onSchedule"
