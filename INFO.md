@@ -18,3 +18,7 @@ tool to trigger or schedule any task imaginable.
 ### GitHub commit check
 
 ![GitHub commit check](docs/images/github-commit-check.png)
+
+### View container status and logs
+
+![Container status and logs](docs/images/status-log.png)
