@@ -21,6 +21,26 @@ Connect and configure these integrations:
     i.e., pulling the Docker image requires no credentials for authorization,
     you can leave this empty.
 
+1.  **Map secrets to environment variables**
+
+    ![Secret environment variable map](docs/images/secret-map.png)
+
+    If your container needs access to secret values, e.g., authentication tokens
+    or passwords, you can create a secret to store the value and then map that
+    secret to an environment variable here. Select the secret from the drop down
+    and then provide a name for the environment variable. The running container
+    will then have the value of that secret available to it as the value of the
+    environment variable. You _cannot_ use the same environment variable name as
+    both a secret and regular environment variable.
+
+1.  **Environment variables**
+
+    ![Docker Environment Variables](docs/images/env-vars.png)
+
+    Specify any environment variables needed for your image and commands to run.
+    The environment variable format is `KEY=VALUE`. For example:
+    `GIT_URL=https://github.com`
+
 1.  **Select the trigger to run this skill**
 
     ![Skill trigger](docs/images/trigger.png)
@@ -67,26 +87,6 @@ Connect and configure these integrations:
     Refer to the
     [container skills documentation](https://docs.atomist.com/authoring/container-skills/#running-commands "Atomist Container Skills Documentation - Running Commands")
     to learn more about the possible image and entrypoint/command combinations.
-
-1.  **Environment variables**
-
-    ![Docker Environment Variables](docs/images/env-vars.png)
-
-    Specify any environment variables needed for your image and commands to run.
-    The environment variable format is `KEY=VALUE`. For example:
-    `GIT_URL=https://github.com`
-
-1.  **Map secrets to environment variables**
-
-    ![Secret environment variable map](docs/images/secret-map.png)
-
-    If your container needs access to secret values, e.g., authentication tokens
-    or passwords, you can create a secret to store the value and then map that
-    secret to an environment variable here. Select the secret from the drop down
-    and then provide a name for the environment variable. The running container
-    will then have the value of that secret available to it as the value of the
-    environment variable. You _cannot_ use the same environment variable name as
-    both a secret and regular environment variable.
 
 1.  **Cron schedule trigger** _(advanced)_
 

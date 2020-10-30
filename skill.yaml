@@ -45,6 +45,16 @@ skill:
       minRequired: 0
 
   parameters:
+    - string:
+        name: env_map
+        displayName: ""
+        description: ""
+        required: false
+    - stringArray:
+        name: docker_env
+        displayName: Environment variables
+        description: Environment variables to be set on the container (format `KEY=VALUE`)
+        required: false
     - multiChoice:
         name: subscription_filter
         displayName: Standard event triggers
@@ -96,21 +106,6 @@ skill:
         lineStyle: multiple
         placeHolder: '/bin/sh -c "cd /atm/home && ls -la | wc"'
         required: false
-    - stringArray:
-        name: docker_env
-        displayName: Environment variables
-        description: Environment variables to be set on the container (format `KEY=VALUE`)
-        required: false
-    - string:
-        name: env_map
-        displayName: ""
-        description: ""
-        required: false
-    - repoFilter:
-        name: repos
-        displayName: Which repositories
-        description: ""
-        required: false
     - schedule:
         name: schedule
         displayName: Schedule trigger
@@ -152,6 +147,11 @@ skill:
         lineStyle: multiple
         required: false
         visibility: hidden
+    - repoFilter:
+        name: repos
+        displayName: Which repositories
+        description: ""
+        required: false
 
   artifacts:
     docker:
