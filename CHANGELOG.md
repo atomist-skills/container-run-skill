@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/container-run-skill/compare/2.1.10...HEAD)
 
+### Changed
+
+-   Reorder parameters to reflect display order. [7eaace2](https://github.com/atomist-skills/container-run-skill/commit/7eaace21e84935dfb04b334882ca46b39fb9c58f)
+
 ## [2.1.10](https://github.com/atomist-skills/container-run-skill/compare/2.1.9...2.1.10) - 2020-10-01
 
 ### Added
