@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 -   Reorder parameters to reflect display order. [7eaace2](https://github.com/atomist-skills/container-run-skill/commit/7eaace21e84935dfb04b334882ca46b39fb9c58f)
+-   Update skill icon. [9f7814f](https://github.com/atomist-skills/container-run-skill/commit/9f7814fa6b3d099206a97e40e9d2d6345762eb10)
 
 ## [2.1.10](https://github.com/atomist-skills/container-run-skill/compare/2.1.9...2.1.10) - 2020-10-01
 
